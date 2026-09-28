@@ -1,0 +1,1 @@
+Each page now has its own HTML file and contains only that page content. Shared styling, data, JavaScript and assets remain in css/, js/ and assets/. Run npm run dev from this folder.
