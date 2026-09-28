@@ -1423,11 +1423,32 @@ a.tb-link:hover{color:#fff;text-decoration:underline}
 .drawer .dnav .d-login{display:flex;align-items:center;gap:10px;margin-top:8px;border:1.5px solid var(--line-strong);font:600 1.02rem var(--font-body)}
 .d-login .ic{width:19px;height:19px}
 .lg-d{display:none}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .lg-l{display:none}:root:not([data-theme="light"]) .lg-d{display:block}}
-:root[data-theme="dark"] .lg-l{display:none}
-:root[data-theme="dark"] .lg-d{display:block}
-.site-footer .lg-l{display:none!important}
-.site-footer .lg-d{display:block!important}
+/* LIGHT THEME */
+:root[data-theme="light"] .lg-l{
+  display:block !important;
+}
+
+:root[data-theme="light"] .lg-d{
+  display:none !important;
+}
+
+/* DARK THEME */
+:root[data-theme="dark"] .lg-l{
+  display:none !important;
+}
+
+:root[data-theme="dark"] .lg-d{
+  display:block !important;
+}
+
+/* FOOTER ALWAYS USES WHITE LOGO */
+.site-footer .lg-l{
+  display:none !important;
+}
+
+.site-footer .lg-d{
+  display:block !important;
+}
 ol{margin:0;padding:0;list-style:none}
 .s.flush-top{padding-top:0}
 
@@ -8223,7 +8244,3 @@ h4{
   }
 
 }
-
-/* body{
-  border:10px solid lime !important;
-} */
