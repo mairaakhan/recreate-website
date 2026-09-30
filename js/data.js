@@ -804,13 +804,13 @@ var PORTFOLIO=[
   ['Luggage Shop','intl','assets/portfolio/54-luggage-shop.webp'],
   ['Retro Bella','local','assets/portfolio/55-retro-bella.webp'],
   ['Stitchline','local','assets/portfolio/56-stitchline.webp'],
-  ['United Elevators','local'],
-  ['Salar Enterprises','local'],
-  ['RoomRentPK','local'],
-  ['Niktanya','local'],
-  ['N&R Beauty Studio','local'],
-  ['Country Side Club','local'],
-  ['SOAA','local']
+  ['United Elevators','local','assets/portfolio/57-united-elevators.webp'],
+  ['Salar Enterprises','local','assets/portfolio/58-salar-enterprises.webp'],
+  ['RoomRentPK','local','assets/portfolio/59-roomrentpk.webp'],
+  ['Niktanya','local','assets/portfolio/60-niktanya.webp'],
+  ['N&R Beauty Studio','local','assets/portfolio/61-nr-beauty-studio.webp'],
+  ['Country Side Club','local','assets/portfolio/62-country-side-club.webp'],
+  ['SOAA','local','assets/portfolio/63-soaa.webp']
 ];
 var PORTFOLIO_IMG=PORTFOLIO.filter(function(p){return p[2]});
 var PORTFOLIO_REST=PORTFOLIO.filter(function(p){return !p[2]});

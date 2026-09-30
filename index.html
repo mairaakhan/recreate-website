@@ -561,20 +561,31 @@
 
   </section>
 
-  <!-- AWARDS & RECOGNITION -->
+ <!-- AWARDS & RECOGNITION -->
 
 <section class="s home-awards">
 
   <div class="wrap">
 
+    <!-- SECTION HEADER -->
     <div class="home-awards-head reveal">
 
       <div>
+
         <span class="home-awards-kicker">
           CERTIFICATES &amp; RECOGNITIONS
         </span>
 
         <h2>Awards &amp; Recognition</h2>
+
+        <!-- MOBILE ONLY: Text link + arrow -->
+        <a
+          class="home-awards-mobile-all"
+          href="certificates.html">
+          View All 19 Certificates
+          <span aria-hidden="true">→</span>
+        </a>
+
       </div>
 
       <p>
@@ -585,43 +596,34 @@
     </div>
 
 
-<div class="home-awards-slider">
+    <!-- CERTIFICATES SLIDER / GRID -->
+    <div class="home-awards-slider">
 
-  <button
-    class="home-awards-arrow home-awards-prev"
-    type="button"
-    aria-label="Previous certificates">
-    ‹
-  </button>
-
-  <div
-    class="home-awards-grid"
-    id="homeAwardsGrid"
-    data-fill="home-awards"
-    data-stagger="">
-  </div>
-
-  <button
-    class="home-awards-arrow home-awards-next"
-    type="button"
-    aria-label="Next certificates">
-    ›
-  </button>
-
-</div>
+      <!-- DESKTOP PREVIOUS ARROW -->
+      <button
+        class="home-awards-arrow home-awards-prev"
+        type="button"
+        aria-label="Previous certificates">
+        ‹
+      </button>
 
 
-    <div class="home-awards-more reveal">
+      <!-- CERTIFICATES -->
+      <div
+        class="home-awards-grid"
+        id="homeAwardsGrid"
+        data-fill="home-awards"
+        data-stagger="">
+      </div>
 
-      <a
-        class="btn btn-ghost"
-        href="certificates.html">
-        View All Certificates
-      </a>
 
-    </div>
-
-  </div>
+      <!-- DESKTOP NEXT ARROW -->
+      <button
+        class="home-awards-arrow home-awards-next"
+        type="button"
+        aria-label="Next certificates">
+        ›
+      </button>
 
 </section>
 
@@ -1208,9 +1210,7 @@
 </noscript>
 
 <!-- RE CREATE CINEMATIC WELCOME -->
-<!-- RE CREATE CINEMATIC WELCOME -->
-<div class="welcome-intro rc-intro" id="welcomeIntro" style="display:none !important;">
-  <!-- Background -->
+<div class="welcome-intro rc-intro" id="welcomeIntro">  <!-- Background -->
   <div class="rc-intro-grid"></div>
   <div class="rc-intro-glow rc-glow-left"></div>
   <div class="rc-intro-glow rc-glow-right"></div>

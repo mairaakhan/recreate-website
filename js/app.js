@@ -503,20 +503,98 @@ function setMeta(r){
   setTag('link[rel="canonical"]',C.base+m.p,'href');
 }
 function show(r){
-  pages.forEach(function(p){var on=p.getAttribute('data-page')===r;p.hidden=!on;if(on){p.classList.remove('enter');void p.offsetWidth;p.classList.add('enter')}});
-  $$('[data-route]').forEach(function(a){if(a.getAttribute('data-route')===r)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
-  setMeta(r);cur=r;
-  if(r==='blogs')renderBlog();
-  window.scrollTo(0,0);
+
+  pages.forEach(function(p){
+
+    var on = p.getAttribute('data-page') === r;
+
+    p.hidden = !on;
+
+    if(on && !firstRoute){
+      p.classList.remove('enter');
+      void p.offsetWidth;
+      p.classList.add('enter');
+    }
+
+  });
+
+  $$('[data-route]').forEach(function(a){
+
+    if(a.getAttribute('data-route') === r){
+      a.setAttribute('aria-current','page');
+    }else{
+      a.removeAttribute('aria-current');
+    }
+
+  });
+
+  setMeta(r);
+  cur = r;
+
+  if(r === 'blogs'){
+    renderBlog();
+  }
+
+  /* Only move to top when changing route */
+  if(!firstRoute){
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'auto'
+    });
+  }
+
   closeMenu();
-  lbOpener=null;closeLB();
-  pdOpener=null;closePD();
-  if(r==='contact')applyEnquiry();
-  if(!firstRoute){var m=$('#main');m.focus({preventScroll:true})}
-  firstRoute=false;
+
+  lbOpener = null;
+  closeLB();
+
+  pdOpener = null;
+  closePD();
+
+  if(r === 'contact'){
+    applyEnquiry();
+  }
+
+  if(!firstRoute){
+    var m = $('#main');
+
+    if(m){
+      m.focus({
+        preventScroll: true
+      });
+    }
+  }
+
+  firstRoute = false;
+
   observeReveals();
-  var a=anchorFromHash();
-  if(r==='services'&&a){setTimeout(function(){var el=document.getElementById('svc-'+a);if(el){el.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash')}},90)}
+
+  var a = anchorFromHash();
+
+  if(r === 'services' && a){
+
+    setTimeout(function(){
+
+      var el = document.getElementById('svc-' + a);
+
+      if(el){
+
+        el.scrollIntoView({
+          behavior: reduce ? 'auto' : 'smooth',
+          block: 'start'
+        });
+
+        el.classList.remove('flash');
+        void el.offsetWidth;
+        el.classList.add('flash');
+
+      }
+
+    },90);
+
+  }
+
 }
 window.addEventListener('hashchange',function(){show(routeFromHash())});
 $('#skip').addEventListener('click',function(e){e.preventDefault();$('#main').focus()});
@@ -1396,6 +1474,47 @@ function pkOpen(){
 
 })();
 
+/* ---------- Smooth page navigation ---------- */
+
+document.addEventListener('click',function(e){
+
+  var link=e.target.closest('a[href]');
+
+  if(!link) return;
+
+  var href=link.getAttribute('href');
+
+  if(!href) return;
+
+  /* Ignore special/external links */
+  if(
+    href.charAt(0)==='#' ||
+    href.indexOf('mailto:')===0 ||
+    href.indexOf('tel:')===0 ||
+    href.indexOf('javascript:')===0 ||
+    link.hasAttribute('target') ||
+    link.hasAttribute('download')
+  ){
+    return;
+  }
+
+  var url=new URL(link.href,window.location.href);
+
+  /* Only animate links inside this website */
+  if(url.origin!==window.location.origin){
+    return;
+  }
+
+  e.preventDefault();
+
+  document.body.classList.add('page-leaving');
+
+  setTimeout(function(){
+    window.location.href=url.href;
+  },180);
+
+});
+
 /* ---------- Start ---------- */
 show(routeFromHash());
 onScroll();
@@ -1668,3 +1787,40 @@ FILL['home-awards']=function(){
   return out;
 
 };
+
+/* =========================================================
+   FIX MOBILE HEADER AFTER NOTICE SCROLLS AWAY
+   ========================================================= */
+
+(function(){
+
+  const notice = document.querySelector('.notice');
+
+  if(!notice) return;
+
+  function updateFixedHeader(){
+
+    if(window.innerWidth > 1179){
+      document.body.classList.remove('header-fixed');
+      return;
+    }
+
+    const noticeBottom = notice.getBoundingClientRect().bottom;
+
+    if(noticeBottom <= 0){
+      document.body.classList.add('header-fixed');
+    }else{
+      document.body.classList.remove('header-fixed');
+    }
+
+  }
+
+  window.addEventListener('scroll', updateFixedHeader, {
+    passive: true
+  });
+
+  window.addEventListener('resize', updateFixedHeader);
+
+  updateFixedHeader();
+
+})();
