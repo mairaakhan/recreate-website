@@ -3507,7 +3507,7 @@ img.ava{display:block;border-radius:50%;object-fit:cover}
   }
   /* Technologies We Use heading only */
 section.technologies-section .wrap h2.reveal {
-  color: #d9d9d9 !important;
+  color: #0e0202 !important;
 }
 
 /* Technologies logos - transparent cards */
@@ -8453,24 +8453,6 @@ body{
   }
 }
 
-/* =========================================================
-   SMOOTH PAGE TRANSITION
-   ========================================================= */
-
-body{
-  opacity:1;
-  transition:opacity .18s ease;
-}
-
-body.page-leaving{
-  opacity:0;
-}
-
-@media (prefers-reduced-motion: reduce){
-  body{
-    transition:none;
-  }
-}
 
 /* =========================================================
    POPUPS ABOVE COMPLETE WEBSITE + HEADER
@@ -8529,6 +8511,1049 @@ body.page-leaving{
     margin-left:auto !important;
     margin-right:0 !important;
     flex-shrink:0 !important;
+  }
+
+}
+/* =========================================================
+   ALL WEBSITE HEADINGS — CAPITAL LETTERS
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  text-transform: uppercase !important;
+}
+
+/* =========================================
+   PRICING - OLD / DISCOUNTED PRICE
+   ========================================= */
+
+.pricing-price-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:3px;
+}
+
+.pricing-old-price{
+  font-size:15px;
+  font-weight:600;
+  opacity:.55;
+  line-height:1;
+}
+
+.pricing-old-price span{
+  position:relative;
+  display:inline-block;
+}
+
+.pricing-old-price span::after{
+  content:"";
+  position:absolute;
+  left:-2px;
+  right:-2px;
+  top:50%;
+  height:1.5px;
+  background:currentColor;
+  transform:rotate(-7deg);
+  transform-origin:center;
+}
+
+/* =========================================
+   HOME - PACKAGES & PRICING
+   ========================================= */
+
+.home-pricing-section{
+  padding:100px 0;
+  overflow:hidden;
+}
+
+.home-pricing-head{
+  max-width:760px;
+  margin-bottom:45px;
+}
+
+.home-pricing-head h2{
+  margin:12px 0 16px;
+  font-size:clamp(34px,5vw,60px);
+  line-height:1.02;
+}
+
+.home-pricing-head h2 span{
+  color:var(--red, #e21b23);
+}
+
+.home-pricing-head p{
+  max-width:620px;
+  margin:0;
+  line-height:1.7;
+  opacity:.75;
+}
+
+
+/* GRID */
+
+.home-pricing-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+
+/* CARD */
+
+.home-price-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  min-height:340px;
+  padding:28px;
+  border:1px solid rgba(128,128,128,.22);
+  border-radius:20px;
+  background:var(--card, rgba(128,128,128,.04));
+  overflow:hidden;
+  transition:
+    transform .3s ease,
+    border-color .3s ease,
+    box-shadow .3s ease;
+}
+
+.home-price-card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:0;
+  height:3px;
+  background:var(--red, #e21b23);
+  transition:width .35s ease;
+}
+
+.home-price-card:hover{
+  transform:translateY(-7px);
+  border-color:var(--red, #e21b23);
+  box-shadow:0 18px 45px rgba(0,0,0,.10);
+}
+
+.home-price-card:hover::before{
+  width:100%;
+}
+
+
+/* TOP */
+
+.home-price-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  margin-bottom:35px;
+}
+
+.home-price-number{
+  font-size:13px;
+  font-weight:800;
+  opacity:.45;
+}
+
+.home-price-count{
+  padding:7px 10px;
+  border-radius:50px;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.06em;
+  background:rgba(128,128,128,.10);
+}
+
+
+/* TITLE */
+
+.home-price-card h3{
+  margin:0 0 12px;
+  font-size:24px;
+  line-height:1.15;
+}
+
+.home-price-description{
+  margin:0 0 25px;
+  font-size:14px;
+  line-height:1.65;
+  opacity:.68;
+}
+
+
+/* PRICE */
+
+.home-price-start{
+  margin-top:auto;
+  padding-top:20px;
+  border-top:1px solid rgba(128,128,128,.18);
+}
+
+.home-price-start > span{
+  display:block;
+  margin-bottom:5px;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.12em;
+  opacity:.55;
+}
+
+.home-price-start strong{
+  display:block;
+  font-size:31px;
+  line-height:1.1;
+}
+
+.home-price-start small{
+  margin-left:4px;
+  font-size:12px;
+  font-weight:600;
+  opacity:.6;
+}
+
+
+/* LINK */
+
+.home-price-link{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  margin-top:22px;
+  color:inherit;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.07em;
+}
+
+.home-price-link span{
+  color:var(--red, #e21b23);
+  font-size:20px;
+  transition:transform .25s ease;
+}
+
+.home-price-card:hover .home-price-link span{
+  transform:translateX(6px);
+}
+
+
+/* VIEW ALL */
+
+.home-pricing-all{
+  display:flex;
+  justify-content:center;
+  margin-top:38px;
+}
+
+
+/* TABLET */
+
+@media(max-width:1000px){
+
+  .home-pricing-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:699px){
+
+  .home-pricing-section{
+    padding:70px 0;
+  }
+
+  .home-pricing-head{
+    margin-bottom:30px;
+  }
+
+  .home-pricing-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+  }
+
+  .home-price-card{
+    min-height:285px;
+    padding:18px;
+    border-radius:16px;
+  }
+
+  .home-price-top{
+    margin-bottom:25px;
+  }
+
+  .home-price-count{
+    font-size:9px;
+    padding:6px 8px;
+  }
+
+  .home-price-card h3{
+    font-size:18px;
+  }
+
+  .home-price-description{
+    font-size:12px;
+    line-height:1.5;
+  }
+
+  .home-price-start strong{
+    font-size:25px;
+  }
+
+  .home-price-link{
+    font-size:10px;
+  }
+
+}
+
+
+/* VERY SMALL PHONES */
+
+@media(max-width:420px){
+
+  .home-pricing-grid{
+    grid-template-columns:1fr;
+  }
+
+  .home-price-card{
+    min-height:270px;
+  }
+
+}
+
+/* =========================================
+   HOME PACKAGE CARD - DEAL LIST
+   ========================================= */
+
+.home-price-card{
+  min-height:360px;
+}
+
+.home-package-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin:5px 0 25px;
+}
+
+.home-package-mini{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font-size:13px;
+  font-weight:600;
+}
+
+.home-package-check{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:20px;
+  height:20px;
+  min-width:20px;
+  border-radius:50%;
+  background:rgba(220,30,40,.10);
+  color:var(--red, #e21b23);
+  font-size:11px;
+  font-weight:900;
+}
+
+.home-package-more{
+  margin-top:3px;
+  padding-left:29px;
+  font-size:12px;
+  font-weight:700;
+  color:var(--red, #e21b23);
+}
+
+.home-price-link{
+  margin-top:auto;
+  padding-top:18px;
+  border-top:1px solid rgba(128,128,128,.18);
+}
+
+.home-price-link-text{
+  color:inherit !important;
+  font-size:12px !important;
+}
+
+.home-price-arrow{
+  color:var(--red, #e21b23) !important;
+  font-size:20px !important;
+}
+
+
+/* MOBILE */
+
+@media(max-width:699px){
+
+  .home-price-card{
+    min-height:330px;
+  }
+
+  .home-package-mini{
+    font-size:12px;
+  }
+
+}
+
+
+/* SMALL MOBILE */
+
+@media(max-width:420px){
+
+  .home-price-card{
+    min-height:auto;
+  }
+
+}
+
+/* =========================================
+   HOME PRICING - CATEGORY TABS
+   ========================================= */
+
+.home-pricing-filters{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:35px 0 45px;
+}
+
+.home-pricing-filter{
+  appearance:none;
+  border:1px solid rgba(128,128,128,.28);
+  background:transparent;
+  color:inherit;
+  padding:11px 17px;
+  border-radius:999px;
+  font:inherit;
+  font-size:13px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.25s ease;
+}
+
+.home-pricing-filter:hover{
+  border-color:#e21b23;
+  color:#e21b23;
+}
+
+.home-pricing-filter.active{
+  background:#e21b23;
+  border-color:#e21b23;
+  color:#fff;
+}
+
+
+/* CATEGORY HEADING */
+
+.home-pricing-category-head{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:end;
+  gap:30px;
+  margin-bottom:30px;
+}
+
+.home-pricing-category-head h3{
+  margin:8px 0 0;
+  font-size:clamp(26px,4vw,42px);
+}
+
+.home-pricing-category-head > p{
+  margin:0;
+  line-height:1.7;
+  opacity:.7;
+}
+
+
+/* =========================================
+   PACKAGE CARDS
+   ========================================= */
+
+.home-pricing-plans{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:20px;
+  align-items:stretch;
+}
+
+.home-plan-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  padding:28px;
+  border:1px solid rgba(128,128,128,.24);
+  border-radius:20px;
+  overflow:hidden;
+  transition:
+    transform .3s ease,
+    border-color .3s ease,
+    box-shadow .3s ease;
+}
+
+.home-plan-card:hover{
+  transform:translateY(-6px);
+  border-color:#e21b23;
+  box-shadow:0 18px 45px rgba(0,0,0,.10);
+}
+
+.home-plan-card.popular{
+  border-color:#e21b23;
+}
+
+
+/* POPULAR */
+
+.home-plan-popular{
+  position:absolute;
+  top:0;
+  right:0;
+  padding:8px 14px;
+  border-radius:0 18px 0 14px;
+  background:#e21b23;
+  color:#fff;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.07em;
+}
+
+
+/* CARD HEADING */
+
+.home-plan-category{
+  display:block;
+  margin-bottom:12px;
+  color:#e21b23;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+.home-plan-card h4{
+  margin:0 0 10px;
+  padding-right:20px;
+  font-size:23px;
+}
+
+.home-plan-card-head p{
+  margin:0;
+  min-height:48px;
+  font-size:13px;
+  line-height:1.55;
+  opacity:.68;
+}
+
+
+/* PRICE */
+
+.home-plan-price-wrap{
+  margin:25px 0;
+}
+
+.home-plan-old-price{
+  margin-bottom:4px;
+  font-size:14px;
+  font-weight:600;
+  opacity:.5;
+}
+
+.home-plan-old-price span{
+  text-decoration:line-through;
+}
+
+.home-plan-price{
+  display:flex;
+  align-items:flex-end;
+  gap:3px;
+}
+
+.home-plan-currency{
+  margin-bottom:7px;
+  font-size:18px;
+  font-weight:800;
+}
+
+.home-plan-price strong{
+  font-size:42px;
+  line-height:1;
+}
+
+.home-plan-price small{
+  margin:0 0 6px 5px;
+  font-size:11px;
+  opacity:.6;
+}
+
+.home-plan-custom{
+  font-size:30px;
+  font-weight:900;
+}
+
+
+/* FEATURES */
+
+.home-plan-features{
+  display:flex;
+  flex-direction:column;
+  gap:11px;
+  margin:0 0 28px;
+  padding:20px 0 0;
+  border-top:1px solid rgba(128,128,128,.18);
+  list-style:none;
+}
+
+.home-plan-features li{
+  display:flex;
+  gap:9px;
+  font-size:13px;
+  line-height:1.45;
+}
+
+.home-plan-check{
+  flex-shrink:0;
+  color:#e21b23;
+  font-weight:900;
+}
+
+.home-plan-features .home-plan-more{
+  color:#e21b23;
+  font-weight:800;
+}
+
+
+/* BUTTON */
+
+.home-plan-actions{
+  margin-top:auto;
+}
+
+.home-plan-actions .btn{
+  width:100%;
+  justify-content:center;
+}
+
+.home-pricing-all{
+  display:flex;
+  justify-content:center;
+  margin-top:38px;
+}
+
+
+/* TABLET */
+
+@media(max-width:1000px){
+
+  .home-pricing-plans{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:699px){
+
+  .home-pricing-category-head{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+  .home-pricing-filters{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    padding-bottom:8px;
+    scrollbar-width:none;
+  }
+
+  .home-pricing-filters::-webkit-scrollbar{
+    display:none;
+  }
+
+  .home-pricing-filter{
+    flex:0 0 auto;
+    white-space:nowrap;
+  }
+
+  .home-pricing-plans{
+    grid-template-columns:1fr;
+  }
+
+  .home-plan-card{
+    padding:22px;
+  }
+
+}
+
+/* =========================================
+   HOME PRICING - CUSTOM SOLUTION
+   ========================================= */
+
+.home-full-pricing .pricing-custom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+
+  width:100%;
+  margin-top:45px;
+  padding:35px 40px;
+
+  border:1px solid rgba(128,128,128,.22);
+  border-radius:20px;
+
+  box-sizing:border-box;
+}
+
+.home-full-pricing .pricing-custom-copy{
+  flex:1;
+  max-width:700px;
+}
+
+.home-full-pricing .pricing-custom-copy h3{
+  margin:8px 0 12px;
+  font-size:clamp(24px,3vw,36px);
+}
+
+.home-full-pricing .pricing-custom-copy p{
+  margin:0;
+  max-width:650px;
+  line-height:1.7;
+  opacity:.72;
+}
+
+.home-full-pricing .pricing-custom-action{
+  flex-shrink:0;
+}
+
+.home-full-pricing .pricing-custom-action .btn{
+  white-space:nowrap;
+}
+
+
+/* VIEW FULL PRICING BUTTON */
+
+.home-pricing-page-link{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  width:100%;
+  margin-top:35px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:699px){
+
+  .home-full-pricing .pricing-custom{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:25px;
+
+    padding:25px 20px;
+  }
+
+  .home-full-pricing .pricing-custom-action{
+    width:100%;
+  }
+
+  .home-full-pricing .pricing-custom-action .btn{
+    width:100%;
+    justify-content:center;
+  }
+
+  .home-pricing-page-link{
+    margin-top:25px;
+  }
+
+}
+
+/* =========================================
+   HOME PRICING - TOP HEADING
+   ========================================= */
+
+.home-full-pricing .section-head{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+
+  max-width:850px;
+  margin:0 auto 42px;
+}
+
+.home-full-pricing .section-head .eyebrow{
+  display:inline-block;
+  margin-bottom:12px;
+
+  color:var(--red, #e21b23);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.14em;
+}
+
+.home-full-pricing .section-head h2{
+  margin:0;
+
+  font-size:clamp(34px,5vw,58px);
+  line-height:1.05;
+  letter-spacing:-.03em;
+}
+
+.home-full-pricing .section-head h2 span{
+  color:var(--red, #e21b23);
+}
+
+.home-full-pricing .section-head > p{
+  max-width:650px;
+  margin:18px auto 0;
+
+  font-size:15px;
+  line-height:1.7;
+  opacity:.72;
+}
+
+
+/* =========================================
+   CHOOSE A SERVICE
+   ========================================= */
+
+.home-full-pricing .pricing-filter-wrap{
+  width:100%;
+  margin-bottom:55px;
+}
+
+.home-full-pricing .pricing-filter-label{
+  display:block;
+
+  margin-bottom:15px;
+
+  text-align:center;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+
+  opacity:.65;
+}
+
+
+/* CATEGORY BUTTON AREA */
+
+.home-full-pricing .pricing-filters{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+
+  gap:10px;
+
+  width:100%;
+}
+
+
+/* CATEGORY BUTTONS */
+
+.home-full-pricing .pricing-filter{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+
+  padding:11px 17px;
+
+  border:1px solid rgba(128,128,128,.25);
+  border-radius:999px;
+
+  background:transparent;
+  color:inherit;
+
+  font:inherit;
+  font-size:12px;
+  font-weight:700;
+
+  cursor:pointer;
+
+  transition:
+    background .25s ease,
+    color .25s ease,
+    border-color .25s ease,
+    transform .25s ease;
+}
+
+.home-full-pricing .pricing-filter:hover{
+  border-color:var(--red, #e21b23);
+  color:var(--red, #e21b23);
+  transform:translateY(-2px);
+}
+
+.home-full-pricing .pricing-filter.active{
+  background:var(--red, #e21b23);
+  border-color:var(--red, #e21b23);
+  color:#fff;
+}
+
+
+/* ICON INSIDE CATEGORY */
+
+.home-full-pricing .pricing-filter-icon{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  width:17px;
+  height:17px;
+}
+
+.home-full-pricing .pricing-filter-icon svg{
+  width:17px;
+  height:17px;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media(max-width:699px){
+
+  .home-full-pricing .section-head{
+    margin-bottom:30px;
+  }
+
+  .home-full-pricing .section-head h2{
+    font-size:clamp(30px,10vw,42px);
+  }
+
+  .home-full-pricing .section-head > p{
+    font-size:14px;
+  }
+
+  .home-full-pricing .pricing-filter-wrap{
+    margin-bottom:40px;
+  }
+
+  .home-full-pricing .pricing-filters{
+    justify-content:flex-start;
+    flex-wrap:nowrap;
+
+    overflow-x:auto;
+
+    padding:2px 2px 10px;
+
+    scrollbar-width:none;
+  }
+
+  .home-full-pricing .pricing-filters::-webkit-scrollbar{
+    display:none;
+  }
+
+  .home-full-pricing .pricing-filter{
+    flex:0 0 auto;
+    white-space:nowrap;
+  }
+
+}
+
+/* =========================================
+   HOME PRODUCT CATEGORIES
+   ========================================= */
+
+.home-product-categories{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin:0 0 28px;
+}
+
+.home-product-category{
+  flex:0 0 auto;
+}
+
+
+/* MOBILE */
+
+@media(max-width:699px){
+
+  .home-product-categories{
+    justify-content:flex-start;
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    padding-bottom:8px;
+    scrollbar-width:none;
+  }
+
+  .home-product-categories::-webkit-scrollbar{
+    display:none;
+  }
+
+  .home-product-category{
+    white-space:nowrap;
+  }
+
+}
+
+/* Technologies heading */
+.technologies-section h2{
+  color: var(--ink) !important;
+}
+
+/* HOME OUR WORK FILTER SPACING */
+
+.home-work-filters{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+
+  margin-top:10px !important;
+  margin-bottom:40px !important;
+
+  position:relative;
+  z-index:2;
+}
+
+.work-grid[data-fill="home-work"]{
+  position:relative;
+  z-index:1;
+  margin-top:0 !important;
+}
+
+@media(max-width:699px){
+
+  .home-work-filters{
+    flex-wrap:nowrap;
+    justify-content:flex-start;
+    overflow-x:auto;
+    gap:8px;
+
+    margin-bottom:30px !important;
+    padding:2px 0 10px;
+
+    scrollbar-width:none;
+  }
+
+  .home-work-filters::-webkit-scrollbar{
+    display:none;
+  }
+
+  .home-work-filter{
+    flex:0 0 auto;
+    white-space:nowrap;
   }
 
 }

@@ -32,6 +32,95 @@ FILL['home-work']=function(){return PORTFOLIO_IMG.slice(0,6).map(function(p,i){r
 FILL['timeline']=function(){
   return ACHIEVEMENTS.map(function(a){return '<li class="tl-item"><span class="tl-year">'+esc(a.year)+'</span><h3>'+esc(a.title)+'</h3><p>'+esc(a.text)+'</p></li>'}).join('');
 };
+
+/* ---------- Home Work Filters ---------- */
+
+FILL['home-work-filters']=function(){
+
+  return PORTFOLIO_REGIONS.map(function(region,index){
+
+    return (
+      '<button type="button" '+
+      'class="filter home-work-filter" '+
+      'data-home-region="'+region[0]+'" '+
+      'aria-pressed="'+(index===0?'true':'false')+'">'+
+        esc(region[1])+
+      '</button>'
+    );
+
+  }).join('');
+
+};
+
+/* ---------- Home Work Filter Clicks ---------- */
+
+document.addEventListener('click',function(event){
+
+  var button=event.target.closest('.home-work-filter');
+
+  if(!button){
+    return;
+  }
+
+  var region=button.getAttribute('data-home-region');
+
+  var filterBox=document.querySelector(
+    '[data-fill="home-work-filters"]'
+  );
+
+  var workBox=document.querySelector(
+    '[data-fill="home-work"]'
+  );
+
+  if(!filterBox || !workBox){
+    return;
+  }
+
+
+  /* ACTIVE BUTTON */
+
+  filterBox.querySelectorAll('.home-work-filter')
+    .forEach(function(btn){
+
+      var active=
+        btn.getAttribute('data-home-region')===region;
+
+      btn.setAttribute(
+        'aria-pressed',
+        active ? 'true' : 'false'
+      );
+
+    });
+
+
+  /* FILTER PROJECTS */
+
+  var projects=PORTFOLIO_IMG;
+
+  if(region!=='all'){
+
+    projects=PORTFOLIO_IMG.filter(function(project){
+      return project[1]===region;
+    });
+
+  }
+
+
+  /* KEEP MAXIMUM 6 ON HOME */
+
+  projects=projects.slice(0,6);
+
+
+  /* UPDATE ONLY THE CARDS */
+
+  workBox.innerHTML=projects.map(function(project,index){
+
+    return workCard(project,'H:'+index);
+
+  }).join('');
+
+});
+
 function starsHTML(){
   var s='';for(var i=0;i<5;i++)s+='<svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
   return '<span class="stars" role="img" aria-label="5 out of 5 stars">'+s+'</span>';
@@ -134,18 +223,144 @@ function prodCard(p,i){
   var idx=PRODUCTS.indexOf(p);
   return '<article class="prod pop" style="--d:'+(i*45)+'"><button class="shot" type="button" data-shot="'+idx+'" aria-label="View demo screenshot: '+esc(p.name)+'"><img src="'+p.img+'" width="600" height="375" alt="'+esc(p.name)+' dashboard screenshot" loading="lazy" decoding="async"></button><div class="prod-body"><span class="tag">'+p.cat+'</span><h3>'+esc(p.name)+'</h3><p>'+esc(p.desc)+'</p><div class="prod-actions"><button class="btn btn-primary btn-sm" type="button" data-detail="'+idx+'">View details</button><button class="btn btn-ghost btn-sm" type="button" data-shot="'+idx+'">View demo</button></div></div></article>';
 }
-FILL['prod-home']=function(){return PRODUCTS.slice(0,3).map(function(p){return prodCard(p,0).replace(' pop"','"')}).join('')};
-FILL['prod-list']=function(){
-  var chips=['All'].concat(PRODUCT_GROUPS).map(function(g,i){
-    var n=g==='All'?PRODUCTS.length:PRODUCTS.filter(function(p){return p.group===g}).length;
-    return '<button type="button" class="filter" data-group="'+esc(g)+'" aria-pressed="'+(i===0)+'">'+esc(g)+'<span class="fc">'+n+'</span></button>';
+FILL['prod-home']=function(){
+  return PRODUCTS.slice(0,3).map(function(p){
+    return prodCard(p,0).replace(' pop"','"');
   }).join('');
-  return '<div class="prod-tools"><div class="search" role="search"><label class="sr-only" for="prodSearch">Search products</label>'+icon('search')
-    +'<input id="prodSearch" type="search" placeholder="Search products, e.g. restaurant, billing, rentals" autocomplete="off" spellcheck="false"><button class="search-clear" id="prodClear" type="button" aria-label="Clear search" hidden>'+icon('x')+'</button></div>'
-    +'<div class="filters" role="group" aria-label="Filter products by type">'+chips+'</div></div>'
-    +'<p class="result-count" id="prodCount" aria-live="polite"></p><div class="prod-grid" id="prodGrid"></div>'
-    +'<div class="empty" id="prodEmpty" hidden><p>No products match your search.</p><button class="btn btn-ghost" id="prodReset" type="button">Clear search and filters</button></div>';
 };
+
+/* ---------- Home Product Categories ---------- */
+
+FILL['home-product-categories']=function(){
+
+  return ['All'].concat(PRODUCT_GROUPS).map(function(group,index){
+
+    var count=
+      group==='All'
+        ? PRODUCTS.length
+        : PRODUCTS.filter(function(product){
+            return product.group===group;
+          }).length;
+
+    return (
+      '<button type="button" '+
+      'class="filter home-product-category" '+
+      'data-home-category="'+esc(group)+'" '+
+      'aria-pressed="'+(index===0?'true':'false')+'">'+
+        esc(group)+
+        '<span class="fc">'+count+'</span>'+
+      '</button>'
+    );
+
+  }).join('');
+
+};
+
+/* ---------- Home Product Category Clicks ---------- */
+
+document.addEventListener('click',function(e){
+
+  var btn=e.target.closest('[data-home-category]');
+
+  if(!btn){
+    return;
+  }
+
+  var category=btn.getAttribute('data-home-category');
+
+  var categoryBox=document.getElementById('homeProductCategories');
+
+  var productBox=document.querySelector(
+    '.prod-grid[data-fill="prod-home"]'
+  );
+
+  if(!categoryBox || !productBox){
+    return;
+  }
+
+
+  /* ACTIVE BUTTON */
+
+  categoryBox
+    .querySelectorAll('[data-home-category]')
+    .forEach(function(button){
+
+      button.setAttribute(
+        'aria-pressed',
+        button===btn ? 'true' : 'false'
+      );
+
+    });
+
+
+  /* GET PRODUCTS */
+
+  var products;
+
+  if(category==='All'){
+
+    products=PRODUCTS.slice(0,3);
+
+  }else{
+
+    products=PRODUCTS.filter(function(product){
+      return product.group===category;
+    }).slice(0,3);
+
+  }
+
+
+  /* UPDATE PRODUCT CARDS */
+
+  productBox.innerHTML=products.map(function(product,index){
+
+    return prodCard(product,index).replace(' pop"','"');
+
+  }).join('');
+
+});
+
+FILL['prod-list']=function(){
+
+  var chips=['All'].concat(PRODUCT_GROUPS).map(function(g,i){
+
+    var n=g==='All'
+      ? PRODUCTS.length
+      : PRODUCTS.filter(function(p){
+          return p.group===g;
+        }).length;
+
+    return '<button type="button" class="filter" data-group="'+esc(g)+'" aria-pressed="'+(i===0)+'">'+
+      esc(g)+
+      '<span class="fc">'+n+'</span>'+
+    '</button>';
+
+  }).join('');
+
+  return '<div class="prod-tools">'+
+    '<div class="search" role="search">'+
+      '<label class="sr-only" for="prodSearch">Search products</label>'+
+      icon('search')+
+      '<input id="prodSearch" type="search" placeholder="Search products, e.g. restaurant, billing, rentals" autocomplete="off" spellcheck="false">'+
+      '<button class="search-clear" id="prodClear" type="button" aria-label="Clear search" hidden>'+
+        icon('x')+
+      '</button>'+
+    '</div>'+
+    '<div class="filters" role="group" aria-label="Filter products by type">'+
+      chips+
+    '</div>'+
+  '</div>'+
+  '<p class="result-count" id="prodCount" aria-live="polite"></p>'+
+  '<div class="prod-grid" id="prodGrid"></div>'+
+  '<div class="empty" id="prodEmpty" hidden>'+
+    '<p>No products match your search.</p>'+
+    '<button class="btn btn-ghost" id="prodReset" type="button">'+
+      'Clear search and filters'+
+    '</button>'+
+  '</div>';
+
+};
+
 FILL['why']=function(){return WHY.map(function(w){return '<div class="why-item">'+icon(w.icon)+'<h3>'+esc(w.t)+'</h3><p>'+esc(w.d)+'</p></div>'}).join('')};
 FILL['steps']=function(){return STEPS.map(function(s,i){return '<div class="step"><span class="n">'+(i+1)+'</span><h3>'+s[0]+'</h3><p>'+s[1]+'</p></div>'}).join('')};
 FILL['technologies']=function(){
@@ -187,8 +402,7 @@ FILL['partners']=function(){
   }
   var one=PARTNERS.map(function(p){return item(p,false)}).join('');
   var hid=PARTNERS.map(function(p){return item(p,true)}).join('');
-  return '<section class="s partners"><div class="wrap"><h2 class="reveal">Collaborators &amp; strategic partners</h2></div><div class="marquee" tabindex="-1"><div class="mq-track" data-n="'+PARTNERS.length+'">'+one+hid+hid+'</div></div></section>';
-};
+return '<section class="s partners"><div class="wrap"><h2 class="reveal">Trusted by Businesses We’ve Worked With</h2></div><div class="marquee" tabindex="-1"><div class="mq-track" data-n="'+PARTNERS.length+'">'+one+hid+hid+'</div></div></section>';};
 FILL['presence']=function(){
   return '<section class="s"><div class="wrap"><div class="s-head reveal"><h2>Global presence, local expertise</h2><p>Reach the right team in your region.</p></div><div class="presence" data-stagger>'
   +PLACES.map(function(p){return '<div class="place-card"><span class="cc">'+p[0]+'</span><h3>'+p[1]+'</h3><p>'+p[2]+'</p></div>'}).join('')
@@ -394,8 +608,17 @@ FILL['contact-methods']=function(){
   return row('tel:'+C.tel1,'phone','Call us',C.phone1)+row('tel:'+C.tel2,'phone','Call us',C.phone2)+row('mailto:'+C.email,'mail','Email us',C.email)+row(C.wa,'chat','WhatsApp',C.phone1,true);
 };
 FILL['where']=function(){return '<h3>'+icon('pin')+'Where we work</h3><p class="muted">Karachi, Pakistan. We serve clients in Pakistan, Oman, the USA and beyond, with remote-friendly support.</p>'};
-FILL['hours']=function(){return '<h3>'+icon('clock')+'Support hours</h3><p class="muted">Monday to Friday, 11:00 AM to 6:00 PM Pakistan time (PKT).</p><div class="clocks"><span>Karachi <b id="clkPK">--</b></span><span>New York <b id="clkNY">--</b></span></div><span class="state" id="openState">Checking hours</span>'};
-
+FILL['hours']=function(){
+  return '<h3>'+icon('clock')+'Support hours</h3>'+
+  '<p class="muted">Monday to Friday, 11:00 AM to 6:00 PM Pakistan time (PKT).</p>'+
+  '<div class="clocks">'+
+    '<span>Pakistan <b id="clkPK">--</b></span>'+
+    '<span>Netherlands <b id="clkNL">--</b></span>'+
+    '<span>USA <b id="clkNY">--</b></span>'+
+    '<span>Oman <b id="clkOM">--</b></span>'+
+  '</div>'+
+  '<span class="state" id="openState">Checking hours</span>';
+};
 function badge(k,alt,h,href){
   var b=BADGES[k],w=Math.round(b.w*h/b.h);
   var img='<img src="'+b.src+'" alt="'+esc(alt)+'" width="'+w+'" height="'+h+'" loading="lazy">';
@@ -710,7 +933,6 @@ document.addEventListener('click',function(e){
 });
 
 /* ---------- Product details pop-up ---------- */
-/* ---------- Product details pop-up ---------- */
 var pd=$('#pd'),pdOpener=null;
 var pdX=$('#pdX');
 
@@ -718,12 +940,12 @@ if(pdX){
   pdX.innerHTML=icon('x');
 }
 
-function waProd(name){
-  return 'https://wa.me/'+C.tel1.replace('+','')+
-    '?text='+encodeURIComponent(
-      'Hello Re Create Technologies, I would like to know more about '+name+'.'
-    );
-}
+// function waProd(name){
+//   return 'https://wa.me/'+C.tel1.replace('+','')+
+//     '?text='+encodeURIComponent(
+//       'Hello Re Create Technologies, I would like to know more about '+name+'.'
+//     );
+// }
 
 function openPD(i,opener){
 
@@ -750,8 +972,11 @@ function openPD(i,opener){
   }
 
   if(cta){
-    cta.href=waProd(p.name);
-  }
+  cta.href='contact.html';
+  cta.textContent='Contact Us';
+  cta.removeAttribute('target');
+  cta.removeAttribute('rel');
+}
 
   pd.hidden=false;
   document.body.classList.add('lb-open');
@@ -855,8 +1080,8 @@ function shotsProducts(){
       name:p.name,
       img:p.img,
       sub:'',
-      cta:'Ask about this product',
-      href:waProd(p.name)
+      cta:'Contact Us',
+      href:'contact.html'
     };
   });
 }
@@ -1073,6 +1298,8 @@ if(lb){
     }
   });
 }
+
+
 
 /* ---------- Products: search + filters ---------- */
 
@@ -1325,18 +1552,62 @@ if(form)['f-name','f-email','f-phone','f-msg'].forEach(function(id){$('#'+id).ad
 
 /* ---------- Live clocks ---------- */
 function tickClocks(){
-  var a=$('#clkPK');if(!a)return;
+
+  var pk=$('#clkPK');
+  if(!pk)return;
+
   var now=new Date();
-  var f=function(tz){return new Intl.DateTimeFormat('en-US',{timeZone:tz,hour:'numeric',minute:'2-digit'}).format(now)};
-  a.textContent=f('Asia/Karachi');$('#clkNY').textContent=f('America/New_York');
-  var parts=new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Karachi',weekday:'short',hour:'numeric',minute:'numeric',hour12:false}).formatToParts(now);
-  var g=function(t){return parts.filter(function(p){return p.type===t})[0].value};
-  var day=g('weekday'),mins=(+g('hour')%24)*60+(+g('minute'));
-  var open=day!=='Sat'&&day!=='Sun'&&mins>=660&&mins<1080;
-  var s=$('#openState');s.className='state'+(open?' open':'');
-  s.textContent=open?'Support is open now':'Support is closed right now. Leave a message and we will reply.';
+
+  var f=function(tz){
+    return new Intl.DateTimeFormat('en-US',{
+      timeZone:tz,
+      hour:'numeric',
+      minute:'2-digit'
+    }).format(now);
+  };
+
+  /* Live time for all 4 locations */
+  pk.textContent=f('Asia/Karachi');
+  $('#clkNL').textContent=f('Europe/Amsterdam');
+  $('#clkNY').textContent=f('America/New_York');
+  $('#clkOM').textContent=f('Asia/Muscat');
+
+  /* Check Pakistan support hours */
+  var parts=new Intl.DateTimeFormat('en-US',{
+    timeZone:'Asia/Karachi',
+    weekday:'short',
+    hour:'numeric',
+    minute:'numeric',
+    hour12:false
+  }).formatToParts(now);
+
+  var g=function(t){
+    return parts.filter(function(p){
+      return p.type===t;
+    })[0].value;
+  };
+
+  var day=g('weekday');
+  var mins=(+g('hour')%24)*60+(+g('minute'));
+
+  var open=
+    day!=='Sat' &&
+    day!=='Sun' &&
+    mins>=660 &&
+    mins<1080;
+
+  var s=$('#openState');
+
+  s.className='state'+(open?' open':'');
+
+  s.textContent=open
+    ? 'Support is open now'
+    : 'Support is closed right now. Leave a message and we will reply.';
 }
-setInterval(function(){if(cur==='contact')tickClocks()},30000);
+
+setInterval(function(){
+  if(cur==='contact')tickClocks();
+},30000);
 
 /* ---------- WhatsApp chat widget ---------- */
 function pkOpen(){
@@ -1474,46 +1745,46 @@ function pkOpen(){
 
 })();
 
-/* ---------- Smooth page navigation ---------- */
+// /* ---------- Smooth page navigation ---------- */
 
-document.addEventListener('click',function(e){
+// document.addEventListener('click',function(e){
 
-  var link=e.target.closest('a[href]');
+//   var link=e.target.closest('a[href]');
 
-  if(!link) return;
+//   if(!link) return;
 
-  var href=link.getAttribute('href');
+//   var href=link.getAttribute('href');
 
-  if(!href) return;
+//   if(!href) return;
 
-  /* Ignore special/external links */
-  if(
-    href.charAt(0)==='#' ||
-    href.indexOf('mailto:')===0 ||
-    href.indexOf('tel:')===0 ||
-    href.indexOf('javascript:')===0 ||
-    link.hasAttribute('target') ||
-    link.hasAttribute('download')
-  ){
-    return;
-  }
+//   /* Ignore special/external links */
+//   if(
+//     href.charAt(0)==='#' ||
+//     href.indexOf('mailto:')===0 ||
+//     href.indexOf('tel:')===0 ||
+//     href.indexOf('javascript:')===0 ||
+//     link.hasAttribute('target') ||)
+// //     link.hasAttribute('download')
+// //   ){
+// //     return;
+// //   }
 
-  var url=new URL(link.href,window.location.href);
+// //   var url=new URL(link.href,window.location.href);
 
-  /* Only animate links inside this website */
-  if(url.origin!==window.location.origin){
-    return;
-  }
+// //   /* Only animate links inside this website */
+// //   if(url.origin!==window.location.origin){
+// //     return;
+// //   }
 
-  e.preventDefault();
+// //   e.preventDefault();
 
-  document.body.classList.add('page-leaving');
+// //   document.body.classList.add('page-leaving');
 
-  setTimeout(function(){
-    window.location.href=url.href;
-  },180);
+// //   setTimeout(function(){
+// //     window.location.href=url.href;
+// //   },180);
 
-});
+// // });
 
 /* ---------- Start ---------- */
 show(routeFromHash());
@@ -1532,10 +1803,17 @@ onScroll();
   var title=document.getElementById('pricingTitle');
   var description=document.getElementById('pricingDescription');
 
-  /* Stop here when we are not on the Pricing page */
-  if(!filterWrap || !grid || typeof PRICING==='undefined'){
-    return;
-  }
+/* Run anywhere the pricing section exists */
+if(
+  !filterWrap ||
+  !grid ||
+  !title ||
+  !description ||
+  typeof PRICING === 'undefined' ||
+  !PRICING.length
+){
+  return;
+}
 
 
   function pricingIcon(name){
@@ -1598,15 +1876,25 @@ onScroll();
       }else{
 
         price=
-          '<div class="pricing-price">'+
-            '<span class="pricing-currency">'+plan.currency+'</span>'+
-            '<strong>'+plan.price+'</strong>'+
-            (plan.period
-              ? '<span class="pricing-period">'+plan.period+'</span>'
-              : ''
-            )+
-          '</div>';
+  '<div class="pricing-price-wrap">'+
 
+    (plan.oldPrice
+      ? '<div class="pricing-old-price">'+
+          '<span>'+plan.currency+plan.oldPrice+'</span>'+
+        '</div>'
+      : ''
+    )+
+
+    '<div class="pricing-price">'+
+      '<span class="pricing-currency">'+plan.currency+'</span>'+
+      '<strong>'+plan.price+'</strong>'+
+      (plan.period
+        ? '<span class="pricing-period">'+plan.period+'</span>'
+        : ''
+      )+
+    '</div>'+
+
+  '</div>';
       }
 
 
@@ -1824,3 +2112,411 @@ FILL['home-awards']=function(){
   updateFixedHeader();
 
 })();
+
+/* =========================================
+   HOME - PACKAGES & PRICING
+   ========================================= */
+
+(function(){
+
+  var filterWrap = document.getElementById('homePricingFilters');
+  var plansWrap = document.getElementById('homePricingPlans');
+  var title = document.getElementById('homePricingTitle');
+  var description = document.getElementById('homePricingDescription');
+  var viewAll = document.getElementById('homePricingViewAll');
+
+  /* Only run on Home page */
+  if(
+    !filterWrap ||
+    !plansWrap ||
+    typeof PRICING === 'undefined' ||
+    !PRICING.length
+  ){
+    return;
+  }
+
+
+  /* -----------------------------
+     CATEGORY BUTTONS
+     ----------------------------- */
+
+  function renderFilters(activeId){
+
+    filterWrap.innerHTML = PRICING.map(function(category){
+
+      var active = category.id === activeId;
+
+      return (
+        '<button '+
+          'type="button" '+
+          'class="home-pricing-filter'+(active ? ' active' : '')+'" '+
+          'data-home-pricing="'+category.id+'" '+
+          'aria-pressed="'+(active ? 'true' : 'false')+'">'+
+
+          category.label+
+
+        '</button>'
+      );
+
+    }).join('');
+
+  }
+
+
+  /* -----------------------------
+     PACKAGE CARDS
+     ----------------------------- */
+
+  function renderPlans(category){
+
+    title.textContent = category.title;
+    description.textContent = category.description || '';
+
+    /* Full pricing page opens same category */
+    viewAll.href =
+      'pricing.html?category='+
+      encodeURIComponent(category.id)+
+      '#pricing-packages';
+
+
+    plansWrap.innerHTML = category.plans.map(function(plan){
+
+      var oldPrice = '';
+
+      if(plan.oldPrice){
+
+        oldPrice =
+          '<div class="home-plan-old-price">'+
+            '<span>'+
+              (plan.currency || '$')+
+              plan.oldPrice+
+            '</span>'+
+          '</div>';
+
+      }
+
+
+      var price = '';
+
+      if(plan.price === 'Custom'){
+
+        price =
+          '<div class="home-plan-price home-plan-custom">'+
+            'Custom Quote'+
+          '</div>';
+
+      }else{
+
+        price =
+          '<div class="home-plan-price">'+
+            '<span class="home-plan-currency">'+
+              (plan.currency || '$')+
+            '</span>'+
+
+            '<strong>'+
+              plan.price+
+            '</strong>'+
+
+            (plan.period
+              ? '<small>'+plan.period+'</small>'
+              : ''
+            )+
+
+          '</div>';
+
+      }
+
+
+      /* Show first 6 features on Home */
+      var visibleFeatures = (plan.features || []).slice(0,6);
+
+      var features = visibleFeatures.map(function(feature){
+
+        return (
+          '<li>'+
+            '<span class="home-plan-check">✓</span>'+
+            '<span>'+feature+'</span>'+
+          '</li>'
+        );
+
+      }).join('');
+
+
+      var remaining =
+        (plan.features || []).length -
+        visibleFeatures.length;
+
+
+      if(remaining > 0){
+
+        features +=
+          '<li class="home-plan-more">'+
+            '+ '+remaining+' more features'+
+          '</li>';
+
+      }
+
+
+      var message = encodeURIComponent(
+        'Hi Re Create, I am interested in the '+
+        plan.name+
+        ' package under '+
+        category.label+
+        '.'
+      );
+
+
+      return (
+
+        '<article class="home-plan-card'+
+          (plan.popular ? ' popular' : '')+
+        '">'+
+
+
+          (plan.popular
+            ?
+            '<div class="home-plan-popular">'+
+              '★ MOST POPULAR'+
+            '</div>'
+            :
+            ''
+          )+
+
+
+          '<div class="home-plan-card-head">'+
+
+            '<span class="home-plan-category">'+
+              category.label+
+            '</span>'+
+
+            '<h4>'+
+              plan.name+
+            '</h4>'+
+
+            (plan.description
+              ?
+              '<p>'+plan.description+'</p>'
+              :
+              ''
+            )+
+
+          '</div>'+
+
+
+          '<div class="home-plan-price-wrap">'+
+
+            oldPrice+
+
+            price+
+
+          '</div>'+
+
+
+          '<ul class="home-plan-features">'+
+            features+
+          '</ul>'+
+
+
+          '<div class="home-plan-actions">'+
+
+            '<a '+
+              'class="btn '+(plan.popular ? 'btn-primary' : 'btn-ghost')+'" '+
+              'href="https://wa.me/923322473158?text='+message+'" '+
+              'target="_blank" '+
+              'rel="noopener">'+
+
+              (plan.button || 'Order Now')+
+
+            '</a>'+
+
+          '</div>'+
+
+
+        '</article>'
+
+      );
+
+    }).join('');
+
+  }
+
+
+  /* -----------------------------
+     CHANGE CATEGORY
+     ----------------------------- */
+
+  function selectCategory(id){
+
+    var category = PRICING.find(function(item){
+      return item.id === id;
+    });
+
+    if(!category){
+      category = PRICING[0];
+    }
+
+    renderFilters(category.id);
+    renderPlans(category);
+
+  }
+
+
+  /* -----------------------------
+     FILTER CLICK
+     ----------------------------- */
+
+  filterWrap.addEventListener('click',function(event){
+
+    var button =
+      event.target.closest('[data-home-pricing]');
+
+    if(!button){
+      return;
+    }
+
+    selectCategory(
+      button.getAttribute('data-home-pricing')
+    );
+
+  });
+
+
+  /* -----------------------------
+     DEFAULT CATEGORY
+     ----------------------------- */
+
+  selectCategory(PRICING[0].id);
+
+})();
+
+/* =========================================
+   HOME PRODUCT FILTERS
+   ========================================= */
+
+(function(){
+
+  var homeProducts=document.querySelector('[data-fill="prod-home"]');
+
+  if(!homeProducts){
+    return;
+  }
+
+
+  homeProducts.addEventListener('click',function(event){
+
+    var button=event.target.closest('[data-home-product-group]');
+
+    if(
+      !button ||
+      !button.classList.contains('home-prod-filter')
+    ){
+      return;
+    }
+
+
+    var selectedGroup=
+      button.getAttribute('data-home-product-group');
+
+
+    /* Update active button */
+
+    var buttons=homeProducts.querySelectorAll('.home-prod-filter');
+
+    buttons.forEach(function(btn){
+
+      var active=
+        btn.getAttribute('data-home-product-group')===selectedGroup;
+
+      btn.classList.toggle('active',active);
+      btn.setAttribute('aria-pressed',active?'true':'false');
+
+    });
+
+
+    /* Filter cards */
+
+    var products=
+      homeProducts.querySelectorAll('.home-product-item');
+
+    products.forEach(function(product){
+
+      var group=
+        product.getAttribute('data-home-product-group');
+
+      var show=
+        selectedGroup==='All' ||
+        group===selectedGroup;
+
+      product.hidden=!show;
+
+    });
+
+  });
+
+})();
+/* =========================================
+   HOME PRODUCT FILTERS
+   ========================================= */
+
+(function(){
+
+  var homeProducts=document.querySelector('[data-fill="prod-home"]');
+
+  if(!homeProducts){
+    return;
+  }
+
+
+  homeProducts.addEventListener('click',function(event){
+
+    var button=event.target.closest('[data-home-product-group]');
+
+    if(
+      !button ||
+      !button.classList.contains('home-prod-filter')
+    ){
+      return;
+    }
+
+
+    var selectedGroup=
+      button.getAttribute('data-home-product-group');
+
+
+    /* Update active button */
+
+    var buttons=homeProducts.querySelectorAll('.home-prod-filter');
+
+    buttons.forEach(function(btn){
+
+      var active=
+        btn.getAttribute('data-home-product-group')===selectedGroup;
+
+      btn.classList.toggle('active',active);
+      btn.setAttribute('aria-pressed',active?'true':'false');
+
+    });
+
+
+    /* Filter cards */
+
+    var products=
+      homeProducts.querySelectorAll('.home-product-item');
+
+    products.forEach(function(product){
+
+      var group=
+        product.getAttribute('data-home-product-group');
+
+      var show=
+        selectedGroup==='All' ||
+        group===selectedGroup;
+
+      product.hidden=!show;
+
+    });
+
+  });
+
+})();
+

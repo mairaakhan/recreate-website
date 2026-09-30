@@ -89,343 +89,1026 @@ var SERVICES=[
    ========================================================================== */
 
 var PRICING=[
-  {
-    id:'logo',
-    label:'Logo Design',
-    icon:'pen',
-    title:'Logo Design Packages',
-    description:'Professional logo design packages for startups, small businesses and established brands.',
-    plans:[
-      {
-        name:'Basic',
-        price:'59',
-        currency:'$',
-        description:'A simple professional logo package for startups and small businesses.',
-        features:[
-          '3 Unique Logo Concepts',
-          '3 Revisions',
-          'Color Options',
-          'Transparent Background',
-          'High-Resolution PNG & JPG',
-          'Final Logo Files',
-          'Ownership Rights'
-        ],
-        button:'Get Started'
-      },
-      {
-        name:'Standard',
-        price:'99',
-        currency:'$',
-        description:'A stronger identity package for businesses that need more creative options.',
-        popular:true,
-        features:[
-          '6 Unique Logo Concepts',
-          '5 Revisions',
-          'Color Options',
-          'Icon / Symbol Design',
-          'Transparent Background',
-          'PNG, JPG & SVG Files',
-          'Social Media Profile Logo',
-          'Ownership Rights'
-        ],
-        button:'Get Started'
-      },
-      {
-        name:'Premium',
-        price:'149',
-        currency:'$',
-        description:'A complete logo and starter branding package for growing businesses.',
-        features:[
-          '9 Unique Logo Concepts',
-          'Unlimited Revisions',
-          'Color Options',
-          'Icon / Symbol Design',
-          'Complete Final File Formats',
-          'Business Card Design',
-          'Letterhead Design',
-          'Envelope Design',
-          'Social Media Profile Assets',
-          'Ownership Rights'
-        ],
-        button:'Get Started'
-      }
-    ]
-  },
+{
+  id:'logo',
+  label:'Logo Design',
+  icon:'pen',
+  title:'Logo Design Packages',
+  description:'Professional logo design packages for startups, growing businesses and established brands.',
+
+  plans:[
+
+    /* BASIC */
+    {
+      name:'Basic',
+      price:'59',
+      oldPrice:'89.99',
+      currency:'$',
+      description:'Professional wordmark and logotype design for businesses that need a clean brand identity.',
+      features:[
+        '3 Unique Logo Concepts',
+        '1 Dedicated Designer',
+        '3 Revisions',
+        'Free Color Options',
+        '2–3 Business Day Turnaround',
+        'Initial Concepts Within 24 Hours',
+        'Ownership Rights',
+        'Unique Custom Design',
+        'Money-Back Guarantee'
+      ],
+      button:'Order Now'
+    },
+
+
+    /* STARTUP */
+    {
+      name:'Startup',
+      price:'99',
+      oldPrice:'169.99',
+      currency:'$',
+      description:'An abstract or iconic logo package with more concepts and creative options.',
+      features:[
+        '6 Unique Logo Concepts',
+        '2 Dedicated Designers',
+        '5 Revisions',
+        'Free Color Options',
+        'Free Icon Design',
+        '2–3 Business Day Turnaround',
+        'Initial Concepts Within 24 Hours',
+        'Ownership Rights',
+        'Unique Custom Design',
+        'Money-Back Guarantee'
+      ],
+      button:'Order Now'
+    },
+
+
+    /* PROFESSIONAL */
+    {
+      name:'Professional',
+      price:'149',
+      oldPrice:'269.99',
+      currency:'$',
+      description:'A complete brand-mark, symbol or emblem logo package with business stationery.',
+      popular:true,
+      features:[
+        '9 Unique Logo Concepts',
+        '4 Dedicated Designers',
+        'Unlimited Revisions',
+        'Free Color Options',
+        'Free Icon Design',
+        'Business Card Design',
+        'Letterhead Design',
+        'Envelope Design',
+        '2–3 Business Day Turnaround',
+        'Initial Concepts Within 24 Hours',
+        'Ownership Rights',
+        'Unique Custom Design',
+        'Money-Back Guarantee'
+      ],
+      button:'Order Now'
+    },
+
+
+    /* BUSINESS */
+    {
+      name:'Business',
+      price:'229',
+      oldPrice:'597',
+      currency:'$',
+      description:'A complete logo and business identity package for brands that need additional marketing materials.',
+      features:[
+        'Unlimited Logo Design Concepts',
+        '6 Dedicated Designers',
+        'Free Icon Design',
+        'Unlimited Revisions',
+        '24-Hour Turnaround',
+        'Business Card Design',
+        'Letterhead Design',
+        'Envelope Design',
+        'Electronic Letterhead',
+        'Invoice Design',
+        '2-Sided Flyer or Bi-Fold Brochure',
+        'Initial Concepts Within 24 Hours',
+        'Ownership Rights',
+        'Unique Custom Design',
+        'Money-Back Guarantee'
+      ],
+      button:'Order Now'
+    },
+
+
+    /* PREMIUM ILLUSTRATIVE */
+    {
+      name:'Premium Illustrative',
+      price:'349',
+      oldPrice:'747',
+      currency:'$',
+      description:'Custom illustrative logo design created for brands that need a distinctive visual identity.',
+      features:[
+        '3 Hand-Drawn Illustrative Concepts',
+        '4 Creative Artists',
+        '24-Hour Turnaround',
+        'Unlimited Revisions',
+        'Business Card Design',
+        'Letterhead Design',
+        'Envelope Design',
+        'Initial Concepts Within 24 Hours',
+        'Ownership Rights',
+        'Unique Custom Design',
+        'Money-Back Guarantee'
+      ],
+      button:'Order Now'
+    },
+
+
+    /* ENTERPRISE */
+    {
+      name:'Enterprise',
+      price:'499',
+      oldPrice:'1247',
+      currency:'$',
+      description:'A complete logo, branding, website and social media identity package.',
+      features:[
+        'Unlimited Logo Design Concepts',
+        '7 Dedicated Designers',
+        'Free Icon Design',
+        'Unlimited Revisions',
+        '24-Hour Turnaround',
+        'Business Card Design',
+        'Letterhead Design',
+        'Envelope Design',
+        'Electronic Letterhead',
+        'Invoice Design',
+        '2-Sided Flyer or Bi-Fold Brochure',
+        '4-Page Website',
+        'Social Media Size Images',
+        '3 Social Media Page Designs',
+        '2 Additional Brand Designs',
+        'Initial Concepts Within 24 Hours',
+        'Ownership Rights',
+        'Unique Custom Design',
+        'Money-Back Guarantee'
+      ],
+      button:'Order Now'
+    }
+
+  ]
+},
+
+{
+  id:'web',
+  label:'Web Development',
+  icon:'code',
+  title:'Web Development Packages',
+  description:'Professional website development packages for startups, growing businesses and advanced online platforms.',
+
+  plans:[
+
+    /* BASIC WEB */
+    {
+      name:'Basic Web',
+      price:'399',
+      oldPrice:'799',
+      currency:'$',
+      description:'A simple professional website package for businesses that need a strong online presence.',
+      features:[
+        '2 Stock Images',
+        '3 Page Website',
+        '1 jQuery Slider Banner',
+        'Contact / Query Form',
+        'Complete W3C Certified HTML',
+        '48 to 72 Hours Turnaround',
+        'Complete Deployment',
+        'Money-Back Guarantee',
+        'ADD-ON: Mobile Responsive — $149'
+      ],
+      button:'Order Now'
+    },
+
+
+    /* STARTUP WEB */
+    {
+      name:'Startup Web',
+      price:'649',
+      oldPrice:'1299',
+      currency:'$',
+      description:'A growing-business website package with additional pages, banners and sitemap setup.',
+      features:[
+        '5 Stock Photos',
+        '5 Page Website',
+        '3 Banner Designs',
+        '1 jQuery Slider Banner',
+        'Google-Friendly Sitemap',
+        'Complete W3C Certified HTML',
+        '48 to 72 Hours Turnaround',
+        'Money-Back Guarantee',
+        'ADD-ON: Mobile Responsive — $149',
+        'ADD-ON: Content Management System — $199'
+      ],
+      button:'Order Now'
+    },
+
+
+    /* PROFESSIONAL WEB */
+    {
+      name:'Professional Web',
+      price:'849',
+      oldPrice:'1699',
+      currency:'$',
+      description:'A professional website solution designed for startups and small business owners.',
+      popular:true,
+      features:[
+        '10 Unique Website Pages',
+        'CMS / Admin Panel Support',
+        '8 Stock Images',
+        '5 Banner Designs',
+        '1 jQuery Slider Banner',
+        'Google-Friendly Sitemap',
+        'Complete W3C Certified HTML',
+        '48 to 72 Hours Turnaround',
+        'Complete Deployment',
+        'Money-Back Guarantee',
+        'ADD-ON: Online Appointment / Booking Tool — $129'
+      ],
+      button:'Order Now'
+    },
+
+
+    /* IDENTITY WEB */
+    {
+      name:'Identity Web',
+      price:'1399',
+      oldPrice:'2799',
+      currency:'$',
+      description:'A flexible website package for growing businesses that need more functionality and integrations.',
+      features:[
+        'Up to 15 Unique Website Pages',
+        'Conceptual and Dynamic Website',
+        'Mobile Responsive Design',
+        'Online Reservation / Appointment Tool — Optional',
+        'Online Payment Integration — Optional',
+        'Custom Forms',
+        'Lead Capturing Forms — Optional',
+        'Interactive Hover Effects',
+        'Newsletter Subscription — Optional',
+        'Newsfeed Integration',
+        'Social Media Integration',
+        'Search Engine Submission',
+        '5 Stock Photos',
+        '3 Unique Banner Designs',
+        '1 jQuery Slider Banner',
+        'Complete W3C Certified HTML',
+        '48 to 72 Hours Turnaround',
+        'Complete Deployment',
+        'Money-Back Guarantee',
+        'ADD-ON: Professional Content / Copywriting — $699'
+      ],
+      button:'Order Now'
+    },
+
+
+    /* ELITE WEB */
+    {
+      name:'Elite Web',
+      price:'1999',
+      oldPrice:'3999',
+      currency:'$',
+      description:'An advanced website and branding solution with custom development and business integrations.',
+      features:[
+        '15 to 20 Website Pages',
+        'Custom Interactive and Dynamic Design',
+        'Custom WordPress or Custom PHP Development',
+        '1 jQuery Slider Banner',
+        'Up to 10 Custom Banner Designs',
+        '10 Stock Images',
+        'Unlimited Revisions',
+        'Special Hover Effects',
+        'Content Management System (CMS)',
+        'Appointment / Scheduling / Online Ordering Integration — Optional',
+        'Online Payment Integration — Optional',
+        'Multi-Language Support — Optional',
+        'Custom Dynamic Forms — Optional',
+        'Newsletter / Offers Signup Area',
+        'Search Bar',
+        'Social Network Live Feed Integration — Optional',
+        'Mobile Responsive',
+        'Google-Friendly Sitemap',
+        'Search Engine Submission',
+        'Complete W3C Certified HTML',
+        'Dedicated Design & Development Team',
+        'Complete Deployment',
+        'Dedicated Account Manager',
+        'Ownership Rights & Unique Design',
+        'Money-Back Guarantee',
+        'ADD-ON: 30 Second Explainer Video — $299',
+        'ADD-ON: Professional Content / Copywriting — $699'
+      ],
+      button:'Order Now'
+    },
+
+
+    /* BUSINESS WEB */
+    {
+      name:'Business Web',
+      price:'2999',
+      oldPrice:'5999',
+      currency:'$',
+      description:'A complete business website package combining custom development, branding and video content.',
+      features:[
+        '15 Second 2D Explainer Video',
+        'Voice-Over & Sound Effects',
+        'Professional Script Writing',
+        'Storyboard',
+        'SEO Meta Tags',
+        '15 to 20 Website Pages',
+        'Custom Interactive and Dynamic Design',
+        'Custom WordPress or Custom PHP Development',
+        '1 jQuery Slider Banner',
+        'Up to 10 Custom Banner Designs',
+        '10 Stock Images',
+        'Unlimited Revisions',
+        'Special Hover Effects',
+        'Content Management System (CMS)',
+        'Appointment / Scheduling / Online Ordering Integration — Optional',
+        'Online Payment Integration — Optional',
+        'Multi-Language Support — Optional',
+        'Custom Dynamic Forms — Optional',
+        'Newsletter / Offers Signup Area',
+        'Search Bar',
+        'Social Network Live Feed Integration — Optional',
+        'Mobile Responsive',
+        'Google-Friendly Sitemap',
+        'Search Engine Submission',
+        'Complete W3C Certified HTML',
+        'Dedicated Design & Development Team',
+        'Complete Deployment',
+        'Dedicated Account Manager',
+        'Ownership Rights & Unique Design',
+        'Money-Back Guarantee',
+        'ADD-ON: 60 Second Explainer Video — $499',
+        'ADD-ON: 1 Month Basic SEO — $299'
+      ],
+      button:'Order Now'
+    },
+
+
+    /* CUSTOMIZED WEB PORTAL */
+    {
+      name:'Customized Web Portal',
+      price:'5499',
+      oldPrice:'10998',
+      currency:'$',
+      description:'A complete custom web portal solution for businesses requiring advanced functionality and user management.',
+      features:[
+        'Complete Custom Design & Development',
+        'Custom Portal Development',
+        'Dating, Job, Professional Network, Social Network, Restaurant, Medical or Enterprise Portal',
+        'Unique Interactive High-End UI Design',
+        'Unlimited Banner Designs',
+        'Interactive Sliding Banners',
+        'Special Hover Effects',
+        'Unlimited Stock Images',
+        'User Signup Area',
+        'Client / User Dashboard',
+        'Custom Coding and Development',
+        'Custom Content Management System',
+        'Appointment / Scheduling / Online Ordering Integration — Optional',
+        'Online Payment Integration — Optional',
+        'Multi-Language Support — Optional',
+        'Custom Dynamic Forms — Optional',
+        'Shopping Cart Integration — Optional',
+        'Complete Database Creation',
+        'Automated Signup Email Authentication',
+        'Web Traffic Analytics Integration',
+        'Third-Party API Integrations',
+        'Newsletter / Offers Signup Area',
+        'Search Functionality',
+        'Social Network Live Feed Integration — Optional',
+        'Search Engine Submission',
+        'Module-Based Architecture',
+        'Advanced Admin Panel',
+        'Expert Design & Development Team',
+        'Complete Deployment',
+        'Complete Source Files',
+        'Dedicated Project Manager',
+        'Ownership Rights & Unique Design',
+        'Money-Back Guarantee',
+        'ADD-ON: 3 Months Basic SEO — $799'
+      ],
+      button:'Order Now'
+    }
+
+  ]
+},
 
   {
-    id:'web',
-    label:'Web Design',
-    icon:'monitor',
-    title:'Web Design & Development Packages',
-    description:'Responsive and professional websites designed around your business requirements.',
-    plans:[
-      {
-        name:'Basic',
-        price:'399',
-        currency:'$',
-        description:'For small businesses that need a professional online presence.',
-        features:[
-          'Up to 3 Pages',
-          'Responsive Web Design',
-          'Mobile & Tablet Friendly',
-          'Contact Form',
-          'WhatsApp Integration',
-          'Social Media Links',
-          'Basic On-Page SEO Setup',
-          'Basic Speed Optimization',
-          'Deployment Support'
-        ],
-        button:'Get Started'
-      },
-      {
-        name:'Standard',
-        price:'649',
-        currency:'$',
-        description:'For growing businesses that need more pages, functionality and control.',
-        popular:true,
-        features:[
-          'Up to 5 Pages',
-          'Custom Responsive Design',
-          'Mobile & Tablet Friendly',
-          'Contact / Inquiry Forms',
-          'WhatsApp Integration',
-          'Basic CMS',
-          'SEO-Friendly Structure',
-          'Google Maps Integration',
-          'Social Media Integration',
-          'Speed Optimization',
-          'SSL Setup Assistance',
-          'Deployment Support'
-        ],
-        button:'Get Started'
-      },
-      {
-        name:'Premium',
-        price:'849',
-        currency:'$',
-        description:'For established businesses that need a larger, feature-rich website.',
-        features:[
-          'Up to 10 Pages',
-          'Custom Responsive UI',
-          'CMS / Admin Panel',
-          'Multiple Inquiry Forms',
-          'WhatsApp Integration',
-          'SEO-Friendly Structure',
-          'Google Maps Integration',
-          'Social Media Integration',
-          'Blog / News Section',
-          'Advanced Speed Optimization',
-          'Analytics Integration',
-          'Deployment Support'
-        ],
-        button:'Get Started'
-      }
-    ]
-  },
+  id:'ecommerce',
+  label:'Ecommerce Website',
+  icon:'cart',
+  title:'Ecommerce Website Packages',
+  description:'Ecommerce website packages for businesses that want to sell products online with secure payments, product management and a professional shopping experience.',
+
+  plans:[
+
+    /* E-COMMERCE BASIC */
+    {
+      name:'E-Commerce Basic',
+      price:'399',
+      oldPrice:'799',
+      currency:'$',
+      description:'A complete starter ecommerce solution for businesses beginning to sell online.',
+      features:[
+        'Custom Home Page Design',
+        'Up to 50 Products',
+        'Content Management System (CMS)',
+        'Shopping Cart Integration',
+        'Payment Merchant Integration',
+        'Dedicated Designer & Developer',
+        'Unlimited Revisions',
+        'Money-Back Guarantee'
+      ],
+      button:'Order Now'
+    },
+
+
+    /* E-COMMERCE STARTUP */
+    {
+      name:'E-Commerce Startup',
+      price:'799',
+      oldPrice:'1599',
+      currency:'$',
+      description:'A growing ecommerce solution with more products, featured items and improved product discovery.',
+      features:[
+        'Up to 150 Products',
+        'Content Management System (CMS)',
+        'Shopping Cart Integration',
+        'Featured Products',
+        'Payment Module Integration',
+        'Easy Product Search',
+        'Dedicated Designer & Developer',
+        'Unlimited Revisions',
+        'Money-Back Guarantee'
+      ],
+      button:'Order Now'
+    },
+
+
+    /* E-COMMERCE PROFESSIONAL */
+    {
+      name:'E-Commerce Professional',
+      price:'1499',
+      oldPrice:'2998',
+      currency:'$',
+      description:'A professional ecommerce solution with custom design, responsive layouts and advanced store features.',
+      popular:true,
+      features:[
+        'Customized Design',
+        'Up to 500 Products',
+        'Content Management System (CMS)',
+        'Full Shopping Cart Integration',
+        'Payment Module Integration',
+        'Easy Product Search',
+        'Product Reviews',
+        'Featured Products',
+        'Mobile Responsive',
+        'Order Email Notifications',
+        '5 Promotional Banners',
+        'Expert Design & Development Team',
+        'Unlimited Revisions',
+        'Money-Back Guarantee'
+      ],
+      button:'Order Now'
+    },
+
+
+    /* E-COMMERCE ELITE */
+    {
+      name:'E-Commerce Elite',
+      price:'3299',
+      oldPrice:'6599',
+      currency:'$',
+      description:'An advanced ecommerce and branding package for businesses requiring a complete online selling ecosystem.',
+      features:[
+        'Unlimited Logo Design Concepts',
+        '6 Professional Designers',
+        'Icon Design',
+        'Unlimited Logo Revisions',
+
+        'Stationery Design',
+        'Business Card, Letterhead & Envelope Design',
+        'Invoice Design',
+        'Email Signature Design',
+        'Bi-Fold Brochure or 2-Sided Flyer Design',
+        'Product Catalog Design',
+        'Signage or Label Design',
+        'T-Shirt or Car Wrap Design',
+
+        'E-Commerce Store Design',
+        'Product Detail Page Design',
+        'Unique Banner Slider',
+        'Featured Products Showcase',
+        'Full Shopping Cart Integration',
+        'Unlimited Products',
+        'Unlimited Categories',
+        'Product Ratings & Reviews',
+        'Easy Product Search',
+        'Payment Gateway Integration',
+        'Multi-Currency Support',
+        'Content Management System (CMS)',
+        'Customer Login Area',
+        'Mobile Responsive',
+
+        'Social Media Plugin Integration',
+        'Tell a Friend Feature',
+        'Social Media Page Designs',
+
+        'Dedicated Account Manager',
+        'Unlimited Revisions',
+        'All Final File Formats',
+        'Ownership Rights & Unique Design',
+        'Money-Back Guarantee'
+      ],
+      button:'Order Now'
+    }
+
+  ]
+},
 
   {
-    id:'ecommerce',
-    label:'Ecommerce',
-    icon:'bag',
-    title:'Ecommerce Development Packages',
-    description:'Online store packages designed to help businesses showcase products and accept orders online.',
-    plans:[
-      {
-        name:'Basic',
-        price:'499',
-        currency:'$',
-        description:'For small businesses launching their first online store.',
-        features:[
-          'Up to 20 Products',
-          'Responsive Store Design',
-          'Shopping Cart',
-          'Product Categories',
-          'Customer Inquiry / Order Form',
-          'WhatsApp Integration',
-          'Basic Payment Setup',
-          'Basic SEO Setup',
-          'Social Media Integration'
-        ],
-        button:'Get Started'
-      },
-      {
-        name:'Standard',
-        price:'799',
-        currency:'$',
-        description:'For growing stores that need more products and stronger ecommerce features.',
-        popular:true,
-        features:[
-          'Up to 50 Products',
-          'Custom Responsive Store',
-          'Shopping Cart & Checkout',
-          'Product Categories & Filters',
-          'Customer Accounts',
-          'Payment Gateway Integration',
-          'Shipping Setup',
-          'Coupon / Discount Setup',
-          'SEO-Friendly Structure',
-          'Analytics Integration'
-        ],
-        button:'Get Started'
-      },
-      {
-        name:'Premium',
-        price:'1199',
-        currency:'$',
-        description:'For businesses that need a larger and more advanced ecommerce solution.',
-        features:[
-          'Up to 100 Products',
-          'Premium Custom Store Design',
-          'Advanced Product Filters',
-          'Customer Accounts',
-          'Payment Gateway Integration',
-          'Shipping Configuration',
-          'Coupons & Promotions',
-          'Inventory Management',
-          'Order Management',
-          'Analytics Integration',
-          'Advanced SEO Setup',
-          'Training & Launch Support'
-        ],
-        button:'Get Started'
-      }
-    ]
-  },
+  id:'shopify',
+  label:'Shopify Website',
+  icon:'cart',
+  title:'Shopify Website Packages',
+  description:'Professional Shopify store packages for startups, growing ecommerce businesses and established online brands.',
 
-  {
-    id:'seo',
-    label:'SEO',
-    icon:'search',
-    title:'SEO Packages',
-    description:'SEO packages designed to improve search visibility, website structure and organic reach.',
-    plans:[
-      {
-        name:'Basic',
-        price:'149',
-        currency:'$',
-        period:'/ month',
-        description:'For small websites that need a solid SEO foundation.',
-        features:[
-          'Website SEO Audit',
-          'Keyword Research',
-          'Up to 5 Target Keywords',
-          'On-Page SEO',
-          'Meta Title & Description Optimization',
-          'Image Alt Text Optimization',
-          'Google Search Console Setup',
-          'Monthly Performance Report'
-        ],
-        button:'Get Started'
-      },
-      {
-        name:'Standard',
-        price:'249',
-        currency:'$',
-        period:'/ month',
-        description:'For businesses that want consistent search visibility and growth.',
-        popular:true,
-        features:[
-          'Everything in Basic',
-          'Up to 15 Target Keywords',
-          'Technical SEO Review',
-          'Internal Linking Optimization',
-          'Content Recommendations',
-          'Local SEO Setup',
-          'Google Business Profile Optimization',
-          'Competitor Analysis',
-          'Monthly Performance Report'
-        ],
-        button:'Get Started'
-      },
-      {
-        name:'Premium',
-        price:'399',
-        currency:'$',
-        period:'/ month',
-        description:'For competitive businesses that need a broader ongoing SEO strategy.',
-        features:[
-          'Everything in Standard',
-          'Up to 30 Target Keywords',
-          'Advanced Technical SEO',
-          'Content Strategy',
-          'Competitor Tracking',
-          'Local SEO Management',
-          'Backlink Strategy',
-          'Conversion Recommendations',
-          'Detailed Monthly Reporting',
-          'Priority SEO Support'
-        ],
-        button:'Get Started'
-      }
-    ]
-  },
+  plans:[
 
-  {
-    id:'social',
-    label:'Social Media',
-    icon:'megaphone',
-    title:'Social Media Marketing Packages',
-    description:'Social media packages for businesses that want consistent content and stronger online visibility.',
-    plans:[
-      {
-        name:'Basic',
-        price:'149',
-        currency:'$',
-        period:'/ month',
-        description:'For small businesses starting to build a consistent social presence.',
-        features:[
-          'Up to 2 Social Platforms',
-          '8 Posts Per Month',
-          'Basic Graphic Design',
-          'Post Captions',
-          'Hashtag Research',
-          'Content Scheduling',
-          'Monthly Report'
-        ],
-        button:'Get Started'
-      },
-      {
-        name:'Standard',
-        price:'249',
-        currency:'$',
-        period:'/ month',
-        description:'For businesses that need more content and active social media support.',
-        popular:true,
-        features:[
-          'Up to 3 Social Platforms',
-          '12 Posts Per Month',
-          'Custom Graphics',
-          'Post Captions',
-          'Hashtag Strategy',
-          'Content Scheduling',
-          'Basic Community Management',
-          'Monthly Content Plan',
-          'Monthly Report'
-        ],
-        button:'Get Started'
-      },
-      {
-        name:'Premium',
-        price:'399',
-        currency:'$',
-        period:'/ month',
-        description:'For brands that need a more complete social media presence and strategy.',
-        features:[
-          'Up to 4 Social Platforms',
-          '20 Posts Per Month',
-          'Premium Custom Graphics',
-          'Content Strategy',
-          'Post Captions & Hashtags',
-          'Content Scheduling',
-          'Community Management',
-          'Campaign Planning',
-          'Competitor Review',
-          'Detailed Monthly Report'
-        ],
-        button:'Get Started'
-      }
-    ]
-  },
+    /* STARTER */
+    {
+      name:'Starter',
+      price:'699',
+      oldPrice:'1399',
+      currency:'$',
+      description:'A starter Shopify store package for businesses ready to begin selling online.',
+      features:[
+        '1 Custom Homepage Concept',
+        '5 Custom Inner Pages',
+        '25 to 50 Products',
+        'Up to 7 Categories',
+        'Content Management System',
+        '5 Premium Stock Photos',
+        'Sales & Inventory Management',
+        'Mini Shopping Cart Integration',
+        'Payment Gateway Integration',
+        'Social Media Integration',
+        'Easy Product Search',
+        '2 Promotional Banners',
+        'Interactive jQuery Slider',
+        'Desktop, iPhone & Android Responsive Compatibility',
+        'Chrome, Firefox & Safari Compatibility',
+        'W3C Certified HTML',
+        'Google-Friendly Sitemap',
+        'Complete Deployment',
+        '30 Days Free Post-Launch Maintenance',
+        'Dedicated Design & Development Team',
+        'Dedicated Account Manager',
+        '24/7 Customer Support',
+        'Unlimited Revisions',
+        'Money-Back Guarantee',
+        'Ownership Rights & Unique Design',
+        'ADD-ON: Complete Brand Identity — $199',
+        'ADD-ON: Live Chat / Bot Integration — $249'
+      ],
+      button:'Order Now'
+    },
+
+
+    /* PROFESSIONAL */
+    {
+      name:'Professional',
+      price:'1399',
+      oldPrice:'2799',
+      currency:'$',
+      description:'A professional ecommerce package with advanced store management, integrations and SEO setup.',
+      popular:true,
+      features:[
+        '2 Custom Homepage Concepts',
+        '10 Custom Inner Pages',
+        'Interactive & Dynamic Website Design',
+        '50 to 250 Products',
+        'Up to 10 Categories',
+        '15 Premium Stock Photos',
+        '8 Promotional Banners',
+        '1 Landing Page Design',
+        'Interactive jQuery Slider',
+        'Customer Login / Signup Area',
+        'Complete Database Creation',
+        'Live Chat / Bot Integration — Optional',
+        'Shipping Merchant Integration',
+        'Dropshipping Integration — Optional',
+        'Content Management System',
+        'Sales & Inventory Management',
+        'Wishlist, Discounts & Coupon Codes',
+        'Product Ratings & Reviews',
+        'Easy Product Search',
+        'Product Sorting',
+        'Full Shopping Cart Integration',
+        'Payment Module Integration',
+        'Social Media Integration',
+        'Third-Party API Integration',
+        'Customized Product Filters',
+        'SEO-Friendly Coding',
+        'On-Page SEO Configuration',
+        'Search Engine Indexing',
+        'Desktop, iPhone & Android Responsive Compatibility',
+        'Cross-Browser Compatibility',
+        'Fast Load Time',
+        'Security Plugins',
+        'W3C Certified HTML',
+        'Google-Friendly Sitemap',
+        'Complete Deployment',
+        '5 Business Email Addresses',
+        '90 Days Free Post-Launch Maintenance',
+        'CMS Training Manual',
+        'Dedicated Design & Development Team',
+        'Dedicated Account Manager',
+        '24/7 Customer Support',
+        'Unlimited Revisions',
+        'Money-Back Guarantee',
+        'Ownership Rights & Unique Design',
+        'ADD-ON: Marketplace Development — $749',
+        'ADD-ON: Multi-Currency Support — $249'
+      ],
+      button:'Order Now'
+    },
+
+
+    /* BUSINESS */
+    {
+      name:'Business',
+      price:'2299',
+      oldPrice:'5599',
+      currency:'$',
+      description:'An advanced ecommerce solution for larger stores requiring extensive product, order and marketing capabilities.',
+      features:[
+        '3 Custom Homepage Concepts',
+        '20 Custom Inner Pages',
+        'Interactive & Dynamic Website Design',
+        '250 to 1000 Products',
+        'Up to 20 Categories',
+        '25 Premium Stock Photos',
+        '15 Promotional Banners',
+        '2 Landing Page Designs',
+        'Interactive jQuery Slider',
+        'Customer Login / Signup Area',
+        'Complete Database Creation',
+        'Live Chat / Bot Integration — Optional',
+        'Shipping Merchant Integration',
+        'Multi-Currency Support — Optional',
+        'Dropshipping Integration — Optional',
+        'Content Management System',
+        'Sales & Inventory Management',
+        'Order Tracking & Billing History',
+        'Order Status & Automated Invoicing',
+        'Wishlist, Discounts & Coupon Codes',
+        'Multiple Product Variations',
+        'Advanced Search & Filtering',
+        'Product Sorting',
+        'Product Ratings & Reviews',
+        'Easy Product Search',
+        'Full Shopping Cart Integration',
+        'Payment Module Integration',
+        'Guest Checkout',
+        'Social Media Integration',
+        'Third-Party API Integration',
+        '1 Year Free Hosting',
+        '1 Year Free Domain Registration',
+        'SEO-Friendly Coding',
+        'On-Page SEO Configuration',
+        'Search Engine Indexing',
+        'Responsive Compatibility',
+        'Cross-Browser Compatibility',
+        'Email Marketing Campaigns',
+        'Fast Load Time',
+        'Security Plugins',
+        'W3C Certified HTML',
+        'Google-Friendly Sitemap',
+        'Google Analytics Installation',
+        'Google Webmaster Tool Setup',
+        'Complete Deployment',
+        '5 Business Email Addresses',
+        '180 Days Free Post-Launch Maintenance',
+        'CMS Training Manual',
+        'Dedicated Design & Development Team',
+        'Dedicated Account Manager',
+        '24/7 Customer Support',
+        'Unlimited Revisions',
+        'Money-Back Guarantee',
+        'Ownership Rights & Unique Design',
+        'ADD-ON: Marketplace Development — $749',
+        'ADD-ON: 30 Second Explainer Video — $349'
+      ],
+      button:'Order Now'
+    }
+
+  ]
+},
+{
+  id:'smm',
+  label:'Social Media Marketing',
+  icon:'share',
+  title:'Social Media Marketing Packages',
+  description:'Social media marketing packages designed to build your online presence, engage your audience and grow your brand across major platforms.',
+
+  plans:[
+
+    /* STARTUP SMM */
+    {
+      name:'Startup SMM Plan',
+      price:'399',
+      oldPrice:'799',
+      currency:'$',
+      period:'/ Month',
+      description:'A starter social media package for businesses that need consistent content and basic social media management.',
+      features:[
+        '3 Posts Per Week Per Network',
+        'Facebook, Twitter & Instagram',
+        'Content Creation',
+        'Business Page Optimization',
+        'Social Media Strategy Overview',
+        'Facebook Likes Campaign',
+        'Monthly Progress Report',
+        'Basic Copywriting',
+        'ADD-ON: Business Social Media Pages Creation — $149'
+      ],
+      button:'Order Now'
+    },
+
+    /* BUSINESS SMM */
+    {
+      name:'Business SMM Plan',
+      price:'699',
+      oldPrice:'1398',
+      currency:'$',
+      period:'/ Month',
+      description:'A complete social media management package for businesses that want stronger engagement and campaign management.',
+      popular:true,
+      features:[
+        'Copywriting & Visual Designs',
+        'Business Page Optimization',
+        'Ad Campaign Management',
+        'Spam Monitoring',
+        'Monthly Progress Report',
+        '5 Posts Per Week',
+        'Facebook, Twitter & Instagram',
+        'Reputation Management',
+        'Social Account Setup',
+        'Content Creation',
+        'Social Media Listening',
+        'Query & Comment Replies',
+        'ADD-ON: Newsletter Email — $149',
+        'ADD-ON: TikTok — $199'
+      ],
+      button:'Order Now'
+    },
+
+
+    /* ENTERPRISE SMM */
+    {
+      name:'Enterprise SMM Plan',
+      price:'1199',
+      oldPrice:'2399',
+      currency:'$',
+      period:'/ Month',
+      description:'An advanced social media management package for brands requiring frequent content, reputation management and multi-platform support.',
+      features:[
+        'Copywriting & Visual Designs',
+        'Business Page Optimization',
+        'Ad Campaign Management',
+        'Spam Monitoring',
+        '6 Posts Per Week',
+        'Facebook, Twitter, Instagram & TikTok',
+        'Reputation Management',
+        'Social Account Setup',
+        'Content Creation',
+        'Social Media Listening',
+        'Query & Comment Replies'
+      ],
+      button:'Order Now'
+    }
+
+  ]
+},
+
+{
+  id:'video',
+  label:'Video Animation',
+  icon:'play',
+  title:'Video Animation Packages',
+  description:'Professional animation packages for promotional videos, explainers, social media content and brand storytelling.',
+
+  plans:[
+
+    {
+      name:'Basic Video Package',
+      price:'299',
+      oldPrice:'599',
+      currency:'$',
+      description:'A starter animation package for short promotional and explainer videos.',
+      features:[
+        'Text & Image Compilation',
+        '30 Second Duration',
+        'Script Writing',
+        'Standard 2D Characters',
+        'Professional Voice-Over & Sound Effects',
+        'Storyboard Revisions',
+        'HD Format Video',
+        'Money-Back Guarantee',
+        'Dedicated Support',
+        'ADD-ON: Custom 2D Character — $149',
+        'ADD-ON: Reels / TikTok Format — $99',
+        'ADD-ON: Animated Intro / Outro — $149'
+      ],
+      button:'Order Now'
+    },
+
+    {
+      name:'Startup Video Package',
+      price:'599',
+      oldPrice:'1198',
+      currency:'$',
+      description:'A professional whiteboard or motion graphics package with custom characters.',
+      popular:true,
+      features:[
+        'Whiteboard or Motion Graphic Animation',
+        '60 Second Duration',
+        'Script Writing',
+        'Custom 2D Characters',
+        'Professional Voice-Over & Sound Effects',
+        'Storyboard Revisions',
+        'HD Format Video',
+        'Money-Back Guarantee',
+        'Dedicated Support',
+        'ADD-ON: 3D Character — $179',
+        'ADD-ON: Reels / TikTok Format — $99',
+        'ADD-ON: Animated Intro / Outro — $149'
+      ],
+      button:'Order Now'
+    },
+
+    {
+      name:'Professional Video Package',
+      price:'1199',
+      oldPrice:'2399',
+      currency:'$',
+      description:'An advanced 2D character animation package for longer professional videos.',
+      features:[
+        '2D Character Animation',
+        '120 Second Duration',
+        'Script Writing',
+        'Custom 2D Characters',
+        'Professional Voice-Over & Sound Effects',
+        'Storyboard Revisions',
+        'HD Format Video',
+        'Money-Back Guarantee',
+        'Dedicated Support',
+        'ADD-ON: Custom 3D Character — $229',
+        'ADD-ON: Reels / TikTok Format — $99',
+        'ADD-ON: Animated Intro / Outro — $149'
+      ],
+      button:'Order Now'
+    }
+
+  ]
+},
+
+{
+  id:'seo',
+  label:'SEO',
+  icon:'search',
+  title:'Search Engine Optimization Packages',
+  description:'SEO packages designed to improve search visibility, optimize your website and help attract more organic traffic.',
+
+  plans:[
+
+    {
+      name:'Startup Plan',
+      price:'499',
+      oldPrice:'998',
+      currency:'$',
+      description:'A starter SEO package covering website auditing, keyword targeting, on-page optimization and initial off-page SEO.',
+      features:[
+        'Website Audit',
+        '10 Pages Optimized',
+        '15 Selected Keywords Targeting',
+        'Keyword Research',
+        'Keyword Grouping',
+        'Keyword Mapping',
+        'On-Page Optimization',
+        'SEO Road Map',
+        'Blog Creation',
+        'Webpage Copywriting — 3 Pages',
+        '10 Title Tag Optimizations',
+        '10 Meta Description Optimizations',
+        '10 Meta Keyword Optimizations',
+        'Domain Redirect Optimization',
+        'XML Sitemap Optimization',
+        'Robots.txt Check',
+        '10 URL Rewrites',
+        'Broken Link Report',
+        'Rich Snippet Recommendations',
+        'Breadcrumbs',
+        'Initial Off-Page SEO',
+        'Social Bookmarking',
+        'SlideShare Marketing',
+        'Forums / FAQs',
+        'Link Building',
+        'Directory Submission',
+        'Local Business Listings'
+      ],
+      button:'Order Now'
+    },
+
+    {
+      name:'Scaling Plan',
+      price:'700',
+      oldPrice:'1400',
+      currency:'$',
+      description:'A growth-focused SEO package with deeper analysis, expanded keyword targeting and ongoing optimization.',
+      popular:true,
+      features:[
+        'Business Analysis',
+        'Consumer Analysis',
+        'Competitor Analysis',
+        '35 Selected Keywords Targeting',
+        '15 Pages Keyword Targeted',
+        'Webpage Optimization',
+        'Meta Tags Creation',
+        'Keyword Optimization',
+        'Image Optimization',
+        'Anchor Optimization',
+        'Tracking & Analysis',
+        'Google Analytics Installation',
+        'Google Webmaster Installation',
+        'Call-To-Action Plan',
+        'Sitemap Creation',
+        'Monthly Reporting',
+        'SEO Recommendations',
+        'Email Support',
+        'Phone Support',
+        'Off-Page Optimization',
+        'Social Bookmarking',
+        'SlideShare Marketing',
+        'Forums / FAQs',
+        'Link Building',
+        'Directory Submission',
+        'Local Business Listings'
+      ],
+      button:'Order Now'
+    },
+
+    {
+      name:'Venture Plan',
+      price:'1200',
+      oldPrice:'2400',
+      currency:'$',
+      description:'An advanced SEO package for businesses requiring broader keyword targeting and detailed optimization.',
+      features:[
+        'Business Analysis',
+        'Consumer Analysis',
+        'Competitor Analysis',
+        '60+ Selected Keywords Targeting',
+        '30 Pages Keyword Targeted',
+        'Webpage Optimization',
+        'Meta Tags Creation',
+        'Keyword Optimization',
+        'Image Optimization',
+        'Anchor Tag Optimization',
+        'Indexing Modifications',
+        'Tracking & Analysis',
+        'Google Places Inclusion',
+        'Google Analytics Installation',
+        'Google Webmaster Installation',
+        'Call-To-Action Plan',
+        'Sitemap Creation',
+        'Monthly Reporting',
+        'SEO Recommendations',
+        'Email Support',
+        'Phone Support',
+        'Off-Page Optimization',
+        'Social Bookmarking',
+        'SlideShare Marketing',
+        'Forums / FAQs',
+        'Link Building',
+        'Directory Submission',
+        'Local Business Listings'
+      ],
+      button:'Order Now'
+    }
+
+  ]
+},
 
   {
     id:'cctv',
@@ -614,39 +1297,62 @@ var PRICING=[
 
 /* ---- Products page (first three also show on Home). img = demo screenshot in assets/products/, feats = the 4 points in the View details pop-up ---- */
 var PRODUCTS=[
-  {img:'assets/products/01-building-maintenance.webp',iw:1200,ih:1114,cat:'Facilities',tone:'Software',icon:'wrench',group:'Property & Rentals',name:'Building Maintenance Software',
-   desc:'Manage flats, residents, maintenance invoices and monthly collection from one dashboard.',
-   feats:['Paid and unpaid invoice tracking','Collection, expense and profit/loss summary','Flat and resident records','Monthly reports']},
-  {img:'assets/products/02-pos-restaurant.webp',iw:1200,ih:574,cat:'Restaurant',tone:'Security',icon:'coffee',group:'Restaurant & Retail',name:'POS Restaurant Software',
+
+  /* 1. POS Restaurant Software */
+  {img:'assets/products/restaurant-pos.png',iw:1200,ih:574,cat:'Restaurant',tone:'Security',icon:'coffee',group:'Restaurant & Retail',name:'POS Restaurant Software',
    desc:'Fast checkout with a photo product grid, order types and printed bills for restaurants.',
    feats:['Touch-friendly product grid with photos','Quick search and barcode scanning','Hold orders, print orders and bills','Register details and daily sales']},
-  {img:'assets/products/03-salon-management.webp',iw:1200,ih:964,cat:'Beauty',tone:'Hardware',icon:'scissors',group:'Hospitality & Leisure',name:'Salon Management System',
-   desc:'Manage sales, stock, customers and staff for your salon.',
-   feats:['Point of sale and sales tracking','Best sellers and stock alerts','Daily and monthly sales reports','Customer, supplier and staff reports']},
-  {img:'assets/products/04-snooker-club.webp',iw:1200,ih:672,cat:'Leisure',tone:'Software',icon:'target',group:'Hospitality & Leisure',name:'Snooker Club Management System',
-   desc:'Track tables, players, playing time and balances for your club.',
-   feats:['Live table status and player assignment','Player balances and discounts','Transfer of playing time and balance','Expenses, sales and reports']},
-  {img:'assets/products/05-factory-management.webp',iw:1200,ih:888,cat:'Manufacturing',tone:'Security',icon:'factory',group:'Business Operations',name:'Factory Management System',
-   desc:'Manage stock, orders, suppliers, accounts and staff across your factory.',
-   feats:['Stock, goods receive notes and gate passes','Quotations, invoices and delivery orders','Suppliers, purchasing and ledger','Employees and attendance']},
-  {img:'assets/products/06-courier-management.webp',iw:1200,ih:703,cat:'Logistics',tone:'Hardware',icon:'truck',group:'Business Operations',name:'Courier Management System',
-   desc:'Handle bookings, shipments, tracking and deliveries in one place.',
-   feats:['Shipment and pickup management','Tracking number search','Accounts receivable and transactions','Roles for managers, drivers and customers']},
-  {img:'assets/products/07-invoice-billing.webp',iw:1200,ih:1417,cat:'Billing',tone:'Software',icon:'filetext',group:'Business Operations',name:'Invoice / Billing Management System',
-   desc:'Create invoices, track payments and stay on top of billing.',
-   feats:['Invoices with paid, partial and unpaid status','Income and expense charts','Bank and cash account balances','Customers, products and reports']},
-  {img:'assets/products/08-restaurant-pos.webp',iw:1200,ih:1420,cat:'Restaurant',tone:'Security',icon:'calc',group:'Restaurant & Retail',name:'Restaurant POS Software',
-   desc:'A restaurant POS platform with restaurant management, subscription packages and billing.',
-   feats:['Manage many restaurants in one place','Subscription packages and billing','Active, trial and inactive status','Platform revenue overview']},
-  {img:'assets/products/09-stock-manager-pos.webp',iw:1200,ih:709,cat:'Retail',tone:'Hardware',icon:'package',group:'Restaurant & Retail',name:'Stock Manager Advance POS',
+
+  /* 2. Stock Manager Advance POS */
+  {img:'assets/products/stock-manager-pos.png',iw:1200,ih:709,cat:'Retail',tone:'Hardware',icon:'package',group:'Restaurant & Retail',name:'Stock Manager Advance POS',
    desc:'Point of sale with stock control and clear sales reports.',
    feats:['Point of sale for fast checkout','Sales and purchases','Products and repair services','Accounting and reports']},
-  {img:'assets/products/10-rentpro.webp',iw:1200,ih:724,cat:'Rentals',tone:'Software',icon:'key',group:'Property & Rentals',name:'RentPro Software',
-   desc:'Manage rental bookings, vehicles, customers and payments.',
-   feats:['New booking and all-bookings list','Vehicle availability at a glance','Customers, drivers and branches','Revenue and reports']},
+
+  /* 3. Restaurant POS Software */
+  {img:'assets/products/QR-restaurant-pos.png',iw:1200,ih:1420,cat:'Restaurant',tone:'Security',icon:'calc',group:'Restaurant & Retail',name:'QR dine flow  Restaurant POS Software',
+   desc:'A restaurant POS platform with restaurant management, subscription packages and billing.',
+   feats:['Manage many restaurants in one place','Subscription packages and billing','Active, trial and inactive status','Platform revenue overview']},
+
+  /* 4. Salon Management System */
+  {img:'assets/products/salon-management.png',iw:1200,ih:964,cat:'Beauty',tone:'Hardware',icon:'scissors',group:'Hospitality & Leisure',name:'Salon Management System',
+   desc:'Manage sales, stock, customers and staff for your salon.',
+   feats:['Point of sale and sales tracking','Best sellers and stock alerts','Daily and monthly sales reports','Customer, supplier and staff reports']},
+
+  /* 5. Guest House Management System */
   {img:'assets/products/11-guest-house-gms.webp',iw:1200,ih:1245,cat:'Hospitality',tone:'Security',icon:'home',group:'Hospitality & Leisure',name:'Guest House Management System (GMS)',
    desc:'Handle rooms, bookings, guests and billing for guest houses.',
-   feats:['Room status and bookings','Guest records and billing','Agents, expenses and maintenance','Occupancy and revenue reports']}
+   feats:['Room status and bookings','Guest records and billing','Agents, expenses and maintenance','Occupancy and revenue reports']},
+
+  /* 6. Invoice / Billing Management System */
+  {img:'assets/products/invoice-billing.png',iw:1200,ih:1417,cat:'Billing',tone:'Software',icon:'filetext',group:'Business Operations',name:'Invoice / Billing Management System',
+   desc:'Create invoices, track payments and stay on top of billing.',
+   feats:['Invoices with paid, partial and unpaid status','Income and expense charts','Bank and cash account balances','Customers, products and reports']},
+
+  /* 7. Building Maintenance Software */
+  {img:'assets/products/building-management.png',iw:1200,ih:1114,cat:'Facilities',tone:'Software',icon:'wrench',group:'Property & Rentals',name:'Building Maintenance Software',
+   desc:'Manage flats, residents, maintenance invoices and monthly collection from one dashboard.',
+   feats:['Paid and unpaid invoice tracking','Collection, expense and profit/loss summary','Flat and resident records','Monthly reports']},
+
+  /* 8. Factory Management System */
+  {img:'assets/products/factory-management.png',iw:1200,ih:888,cat:'Manufacturing',tone:'Security',icon:'factory',group:'Business Operations',name:'Factory Management System',
+   desc:'Manage stock, orders, suppliers, accounts and staff across your factory.',
+   feats:['Stock, goods receive notes and gate passes','Quotations, invoices and delivery orders','Suppliers, purchasing and ledger','Employees and attendance']},
+
+  /* 9. Snooker Club Management System */
+  {img:'assets/products/snooker-club.png',iw:1200,ih:672,cat:'Leisure',tone:'Software',icon:'target',group:'Hospitality & Leisure',name:'Snooker Club Management System',
+   desc:'Track tables, players, playing time and balances for your club.',
+   feats:['Live table status and player assignment','Player balances and discounts','Transfer of playing time and balance','Expenses, sales and reports']},
+
+  /* 10. Courier Management System */
+  {img:'assets/products/courier-management.png',iw:1200,ih:703,cat:'Logistics',tone:'Hardware',icon:'truck',group:'Business Operations',name:'Courier Management System',
+   desc:'Handle bookings, shipments, tracking and deliveries in one place.',
+   feats:['Shipment and pickup management','Tracking number search','Accounts receivable and transactions','Roles for managers, drivers and customers']},
+
+  /* 11. RentPro Software */
+  {img:'assets/products/rentpro.png',iw:1200,ih:724,cat:'Rentals',tone:'Software',icon:'key',group:'Property & Rentals',name:'RentPro Software',
+   desc:'Manage rental bookings, vehicles, customers and payments.',
+   feats:['New booking and all-bookings list','Vehicle availability at a glance','Customers, drivers and branches','Revenue and reports']}
+
 ];
 
 /* ---- "Built around outcomes" and process steps ---- */
@@ -960,26 +1666,46 @@ var CERTIFICATES=[
 
 /* ---- About page: achievements timeline ---- */
 var ACHIEVEMENTS=[
- {
-  "year": "2021",
-  "title": "Expanded Global Client Base",
-  "text": "Successfully delivered 120+ digital solutions across 5 countries"
- },
- {
-  "year": "2022",
-  "title": "AI Integration Success",
-  "text": "Implemented automation solutions that reduced client costs by 40%"
- },
- {
-  "year": "2023",
-  "title": "Innovation Milestone",
-  "text": "Launched in-house AI-powered CMS and chatbot technology"
- },
- {
-  "year": "2024",
-  "title": "Excellence in Digital Transformation",
-  "text": "Recognized for empowering SMEs with intelligent digital ecosystems"
- }
+  {
+    "year": "2020",
+    "title": "Digital Growth",
+    "text": "Expanded our digital services to support more businesses with modern technology solutions."
+  },
+  {
+    "year": "2021",
+    "title": "Expanded Global Client Base",
+    "text": "Successfully delivered 120+ digital solutions across 5 countries."
+  },
+  {
+    "year": "2022",
+    "title": "AI Integration Success",
+    "text": "Implemented automation solutions that reduced client costs by 40%."
+  },
+  {
+    "year": "2023",
+    "title": "Innovation Milestone",
+    "text": "Launched in-house AI-powered CMS and chatbot technology."
+  },
+  {
+    "year": "2024",
+    "title": "Excellence in Digital Transformation",
+    "text": "Recognized for empowering SMEs with intelligent digital ecosystems."
+  },
+  {
+    "year": "2025",
+    "title": "Expanding Digital Solutions",
+    "text": "Strengthened our portfolio of software, web and digital solutions for growing businesses."
+  },
+  {
+    "year": "2026",
+    "title": "Growing Global Reach",
+    "text": "Expanded our presence and continued supporting businesses across local and international markets."
+  },
+  {
+    "year": "2027",
+    "title": "The Next Chapter",
+    "text": "Continuing our journey toward smarter solutions, stronger partnerships and greater digital innovation."
+  }
 ];
 
 /* ---- Client stories shown on Home (the client testimonials from the old website). First 6 show; the rest open with "Show all".
