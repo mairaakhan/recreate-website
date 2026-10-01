@@ -774,15 +774,58 @@ function navHTML(){
   }).join('')+'<a class="nav-login" href="'+C.login+'" target="_blank" rel="noopener">'+icon('user')+'Client login</a>';
 }
 function dnavHTML(){
+
   return NAV.map(function(n){
-    if(n[0]!=='services')return '<a href="'+n[2]+'" data-route="'+n[0]+'">'+n[1]+'</a>';
-    var groups=groupLinks().map(function(c){
-      return '<p class="d-head">'+esc(c.g)+'</p><ul>'+c.items.map(function(s){return '<li><a href="services.html#svc-'+s.id+'">'+esc(s.title)+'</a></li>'}).join('')+'</ul>';
+
+    /* Payment Options will be added separately as a button */
+    if(n[0] === 'payment'){
+      return '';
+    }
+
+    if(n[0] !== 'services'){
+      return '<a href="'+n[2]+'" data-route="'+n[0]+'">'+n[1]+'</a>';
+    }
+
+    var groups = groupLinks().map(function(c){
+
+      return '<p class="d-head">'+esc(c.g)+'</p><ul>'+
+        c.items.map(function(s){
+          return '<li><a href="services.html#svc-'+s.id+'">'+
+            esc(s.title)+
+          '</a></li>';
+        }).join('')+
+      '</ul>';
+
     }).join('');
-    return '<div class="d-acc" id="dAcc"><div class="d-acc-row"><a href="services.html" data-route="services">Services</a>'
-      +'<button class="d-acc-btn" id="dAccBtn" type="button" aria-expanded="false" aria-controls="dAccPanel" aria-label="Show services">'+icon('chevd')+'</button></div>'
-      +'<div class="d-acc-panel" id="dAccPanel"><div class="d-acc-inner">'+groups+'<a class="d-all" href="services.html">View all services</a></div></div></div>';
-  }).join('')+'<a class="d-login" href="'+C.login+'" target="_blank" rel="noopener">'+icon('user')+'Client login</a>';
+
+    return '<div class="d-acc" id="dAcc">'+
+      '<div class="d-acc-row">'+
+        '<a href="services.html" data-route="services">Services</a>'+
+        '<button class="d-acc-btn" id="dAccBtn" type="button" '+
+        'aria-expanded="false" aria-controls="dAccPanel" '+
+        'aria-label="Show services">'+
+          icon('chevd')+
+        '</button>'+
+      '</div>'+
+
+      '<div class="d-acc-panel" id="dAccPanel">'+
+        '<div class="d-acc-inner">'+
+          groups+
+          '<a class="d-all" href="services.html">View all services</a>'+
+        '</div>'+
+      '</div>'+
+    '</div>';
+
+  }).join('')+
+
+  '<a class="d-login" href="Payment-Options.html">'+
+    'Payment Options'+
+  '</a>'+
+
+  '<a class="d-login" href="'+C.login+'" target="_blank" rel="noopener">'+
+    icon('user')+'Client login'+
+  '</a>';
+
 }
 $('#nav').innerHTML=navHTML();
 $('#dnav').innerHTML=dnavHTML();

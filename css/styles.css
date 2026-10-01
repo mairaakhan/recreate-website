@@ -11217,3 +11217,41 @@ html[data-theme="dark"] .home-photo-content p{
   }
 
 }
+
+/* =========================================================
+   MOBILE WHATSAPP POPUP — KEEP BELOW FIXED HEADER
+   ========================================================= */
+
+@media (max-width: 767px){
+
+  .wa-panel{
+    position: fixed !important;
+
+    /* Fixed header ends around 151px */
+    top: 165px !important;
+
+    /* Let the box use remaining screen height */
+    bottom: 85px !important;
+
+    max-height: calc(100dvh - 250px) !important;
+
+    overflow-y: auto !important;
+  }
+
+}
+
+/* MOBILE PAYMENT OPTIONS BUTTON — CENTER TEXT */
+#dnav a[href="Payment-Options.html"]{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+/* MOBILE MENU BUTTONS — CENTER CONTENT */
+#dnav .d-login{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
