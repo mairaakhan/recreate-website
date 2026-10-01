@@ -31,8 +31,9 @@ var NAV=[
   ['products','Products','products.html'],
   ['portfolio','Portfolio','portfolio.html'],
   ['certificates','Certificates','certificates.html'],
+  ['photography','Photography','food-photography.html'],
   ['pricing','Pricing','pricing.html'],
-  ['contact','Contact','contact.html']
+  ['contact','Contact','contact.html'],
 ];
 /* ---- Logo (header + footer) ---- */
 var LOGO='assets/logo.png';
@@ -1319,7 +1320,7 @@ var PRODUCTS=[
    feats:['Point of sale and sales tracking','Best sellers and stock alerts','Daily and monthly sales reports','Customer, supplier and staff reports']},
 
   /* 5. Guest House Management System */
-  {img:'assets/products/11-guest-house-gms.webp',iw:1200,ih:1245,cat:'Hospitality',tone:'Security',icon:'home',group:'Hospitality & Leisure',name:'Guest House Management System (GMS)',
+  {img:'assets/products/GMS.png',iw:1200,ih:1245,cat:'Hospitality',tone:'Security',icon:'home',group:'Hospitality & Leisure',name:'Guest House Management System (GMS)',
    desc:'Handle rooms, bookings, guests and billing for guest houses.',
    feats:['Room status and bookings','Guest records and billing','Agents, expenses and maintenance','Occupancy and revenue reports']},
 
@@ -1454,69 +1455,93 @@ var PORTFOLIO_REGIONS=[['all','All'],['oman','Oman & UAE Projects'],['intl','Int
        A screenshot (files in assets/portfolio/) is optional: projects with one show as picture cards, the rest as compact name tiles.
        Keep the same order as the website. ---- */
 var PORTFOLIO=[
-  ['Al Ejtiaz Media','oman','assets/portfolio/01-al-ejtiaz-media.webp'],
-  ['Trends Tourism','oman','assets/portfolio/02-trends-tourism.webp'],
-  ['Future Solution Co','oman','assets/portfolio/03-future-solution-co.webp'],
-  ['Sanad Services','oman','assets/portfolio/04-sanad-services.webp'],
-  ['Wafina Cafe','oman','assets/portfolio/05-wafina-cafe.webp'],
-  ['Beanzo Roastery','oman','assets/portfolio/06-beanzo-roastery.webp'],
-  ['Oman Wheel','oman','assets/portfolio/07-oman-wheel.webp'],
-  ['Oman Horizon Bulletin','oman','assets/portfolio/08-oman-horizon-bulletin.webp'],
-  ['GR Law Firms','oman','assets/portfolio/09-gr-law-firms.webp'],
-  ['Sanson Trading','oman','assets/portfolio/10-sanson-trading.webp'],
-  ['Buoy','oman','assets/portfolio/11-buoy.webp'],
-  ['Super Grate Metal','oman','assets/portfolio/12-super-grate-metal.webp'],
+
+  ['Al Ejtiaz Media','oman','assets/portfolio/01-al-ejtiaz-media.webp','https://alejtiazmedia.com/'],
+  ['Trends Tourism','oman','assets/portfolio/02-trends-tourism.webp','https://trendstourism.com/'],
+  ['Future Solution Co','oman','assets/portfolio/03-future-solution-co.webp','https://futuresolutionco.com/'],
+  ['Sanad Services','oman','assets/portfolio/04-sanad-services.webp','https://sanadservices.com/'],
+  ['Wafina Cafe','oman','assets/portfolio/05-wafina-cafe.webp','https://wafinacafe.com/'],
+  ['Beanzo Roastery','oman','assets/portfolio/06-beanzo-roastery.webp','https://beanzoroastery.com/'],
+  ['Oman Wheel','oman','assets/portfolio/07-oman-wheel.webp','https://omanwheel.com/'],
+  ['Oman Horizon Bulletin','oman','assets/portfolio/08-oman-horizon-bulletin.webp','https://omanhorizonbulletin.com/'],
+  ['GR Law Firms','oman','assets/portfolio/09-gr-law-firms.webp','https://www.grlawfirms.com/'],
+  ['Sanson Trading','oman','assets/portfolio/10-sanson-trading.webp','https://sansontrading.co/'],
+  ['Buoy','oman','assets/portfolio/11-buoy.webp','https://buoy.ae/'],
+  ['Super Grate Metal','oman','assets/portfolio/12-super-grate-metal.webp','https://supergratemetal.com/'],
+
   ['Zaheb Online','oman','assets/portfolio/13-zaheb-online.webp'],
-  ['Future Manager','intl','assets/portfolio/14-future-manager.webp'],
-  ['MSF Motors','intl','assets/portfolio/15-msf-motors.webp'],
-  ['UNO Bezorgt','intl','assets/portfolio/16-uno-bezorgt.webp'],
+
+  ['Future Manager','intl','assets/portfolio/14-future-manager.webp','https://futuremanager.nl/'],
+  ['MSF Motors','intl','assets/portfolio/15-msf-motors.webp','https://msfmotors.nl/'],
+  ['UNO Bezorgt','intl','assets/portfolio/16-uno-bezorgt.webp','https://unobezorgt.nl/'],
+
   ['Arganie','intl','assets/portfolio/17-arganie.webp'],
-  ['Fiber Flow','intl','assets/portfolio/18-fiber-flow.webp'],
-  ['Up To Date Paper','intl','assets/portfolio/19-up-to-date-paper.webp'],
-  ['Bechlo','local','assets/portfolio/20-bechlo.webp'],
+
+  ['Fiber Flow','intl','assets/portfolio/18-fiber-flow.webp','https://fiberflow.co/'],
+  ['Up To Date Paper','intl','assets/portfolio/19-up-to-date-paper.webp','https://uptodatepaper.com/'],
+  ['Bechlo','local','assets/portfolio/20-bechlo.webp','https://bechlo.pk/'],
+
   ['Hyper Softwares','local','assets/portfolio/21-hyper-softwares.webp'],
-  ['DAA Groep','intl','assets/portfolio/22-daa-groep.webp'],
-  ['AA Consultant','local','assets/portfolio/23-aa-consultant.webp'],
-  ['S Asif Co','local','assets/portfolio/24-s-asif-co.webp'],
-  ['Capital Flow PK','local','assets/portfolio/25-capital-flow-pk.webp'],
-  ['Designer Ind','local','assets/portfolio/26-designer-ind.webp'],
-  ['Urban Textile Ind','local','assets/portfolio/27-urban-textile-ind.webp'],
-  ['Salam Textile','local','assets/portfolio/28-salam-textile.webp'],
-  ['Ali Fuels Filling','local','assets/portfolio/29-ali-fuels-filling.webp'],
-  ['Humsafar Rent a Car','local','assets/portfolio/30-humsafar-rent-a-car.webp'],
-  ['Transport Solution','local','assets/portfolio/31-transport-solution.webp'],
-  ['My School AE','intl','assets/portfolio/32-my-school-ae.webp'],
-  ['Resham Bridal','local','assets/portfolio/33-resham-bridal.webp'],
-  ['The Affordable Designers','local','assets/portfolio/34-the-affordable-designers.webp'],
+
+  ['DAA Groep','intl','assets/portfolio/22-daa-groep.webp','https://daagroep.nl/'],
+  ['AA Consultant','local','assets/portfolio/23-aa-consultant.webp','https://aaconsultant.com.pk/'],
+  ['S Asif Co','local','assets/portfolio/24-s-asif-co.webp','https://sasifco.com/'],
+  ['Capital Flow PK','local','assets/portfolio/25-capital-flow-pk.webp','https://capitalflowpk.com/'],
+  ['Designer Ind','local','assets/portfolio/26-designer-ind.webp','https://designerind.co/'],
+  ['Urban Textile Ind','local','assets/portfolio/27-urban-textile-ind.webp','https://www.urbantextileind.com/'],
+  ['Salam Textile','local','assets/portfolio/28-salam-textile.webp','https://salamtextile.com/'],
+  ['Ali Fuels Filling','local','assets/portfolio/29-ali-fuels-filling.webp','http://alifuelsfilling.com/'],
+  ['Humsafar Rent a Car','local','assets/portfolio/30-humsafar-rent-a-car.webp','https://www.humsafarrentacar.com/'],
+  ['Transport Solution','local','assets/portfolio/31-transport-solution.webp','https://transportsolution.com.pk/'],
+  ['My School AE','intl','assets/portfolio/32-my-school-ae.webp','http://myschoolae.com/'],
+  ['Resham Bridal','local','assets/portfolio/33-resham-bridal.webp','http://reshambridal.pk/'],
+  ['The Affordable Designers','local','assets/portfolio/34-the-affordable-designers.webp','https://theaffordabledesigners.com/'],
+
   ['The Wardrobes','intl','assets/portfolio/35-the-wardrobes.webp'],
-  ['Rangoons','local','assets/portfolio/36-rangoons.webp'],
+
+  ['Rangoons','local','assets/portfolio/36-rangoons.webp','https://rangoons.shop/'],
+
   ['Zenith Store','local','assets/portfolio/37-zenith-store.webp'],
-  ['AMRJ','local','assets/portfolio/38-amrj.webp'],
-  ['Allied Nexus Publisher','local','assets/portfolio/39-allied-nexus-publisher.webp'],
+
+  ['AMRJ','local','assets/portfolio/38-amrj.webp','https://amrj.net/'],
+  ['Allied Nexus Publisher','local','assets/portfolio/39-allied-nexus-publisher.webp','https://www.alliednexuspublisher.com/'],
+
   ['Manjis Bridal Photography','local','assets/portfolio/40-manjis-bridal-photography.webp'],
-  ['Universal Corporation LLC','intl','assets/portfolio/41-universal-corporation-llc.webp'],
-  ['UHU Power','local','assets/portfolio/42-uhu-power.webp'],
-  ['Euro Icon Tower','local','assets/portfolio/43-euro-icon-tower.webp'],
-  ['Nigehban','local','assets/portfolio/44-nigehban.webp'],
-  ['Butifyr','local','assets/portfolio/45-butifyr.webp'],
-  ['Business Baba','local','assets/portfolio/46-business-baba.webp'],
-  ['Final Choice','local','assets/portfolio/47-final-choice.webp'],
-  ['N Health Care','local','assets/portfolio/48-n-health-care.webp'],
-  ['Care Fussion','local','assets/portfolio/49-care-fussion.webp'],
-  ['Consulting Expert','intl','assets/portfolio/50-consulting-expert.webp'],
-  ['PCMCI Quantum','intl','assets/portfolio/51-pcmci-quantum.webp'],
-  ['Emirates Web Solutions','intl','assets/portfolio/52-emirates-web-solutions.webp'],
+
+  ['Universal Corporation LLC','intl','assets/portfolio/41-universal-corporation-llc.webp','https://universalcorporationllc.com'],
+  ['UHU Power','local','assets/portfolio/42-uhu-power.webp','https://www.uhupower.com.pk/'],
+  ['Euro Icon Tower','local','assets/portfolio/43-euro-icon-tower.webp','https://euroicontower.recreatepk.com/'],
+  ['Nigehban','local','assets/portfolio/44-nigehban.webp','https://www.nigehban.com/'],
+
+  ['Butifyr','local','assets/portfolio/45-butifyr.webp','https://butifyr.com/'],
+  ['Business Baba','local','assets/portfolio/46-business-baba.webp', 'https://businessbaba.com.pk/'],
+
+  ['Final Choice','local','assets/portfolio/47-final-choice.webp','http://finalchoice.com.pk/'],
+  ['N Health Care','local','assets/portfolio/48-n-health-care.webp','https://nhealthcare.com.pk/'],
+  ['Care Fussion','local','assets/portfolio/49-care-fussion.webp','https://carefussion.com/'],
+  ['Consulting Expert','intl','assets/portfolio/50-consulting-expert.webp','https://consultingexpert.nl/'],
+  ['PCMCI Quantum','intl','assets/portfolio/51-pcmci-quantum.webp','https://pcmciquantum.com/'],
+  ['Emirates Web Solutions','intl','assets/portfolio/52-emirates-web-solutions.webp','https://emirateswebsolutions.com/'],
+
   ['Taskhait Official','local','assets/portfolio/53-taskhait-official.webp'],
   ['Luggage Shop','intl','assets/portfolio/54-luggage-shop.webp'],
-  ['Retro Bella','local','assets/portfolio/55-retro-bella.webp'],
-  ['Stitchline','local','assets/portfolio/56-stitchline.webp'],
-  ['United Elevators','local','assets/portfolio/57-united-elevators.webp'],
-  ['Salar Enterprises','local','assets/portfolio/58-salar-enterprises.webp'],
-  ['RoomRentPK','local','assets/portfolio/59-roomrentpk.webp'],
-  ['Niktanya','local','assets/portfolio/60-niktanya.webp'],
-  ['N&R Beauty Studio','local','assets/portfolio/61-nr-beauty-studio.webp'],
-  ['Country Side Club','local','assets/portfolio/62-country-side-club.webp'],
-  ['SOAA','local','assets/portfolio/63-soaa.webp']
+
+  ['Retro Bella','local','assets/portfolio/55-retro-bella.webp','http://retrobella.pk/'],
+  ['Stitchline','local','assets/portfolio/56-stitchline.webp','http://stitchlineapparelinc.com/'],
+  ['United Elevators','local','assets/portfolio/57-united-elevators.webp','http://unitedelevatorspk.com/'],
+  ['Salar Enterprises','local','assets/portfolio/58-salar-enterprises.webp','http://salarenterprises.co/'],
+  ['RoomRentPK','local','assets/portfolio/59-roomrentpk.webp','https://roomrentpk.com/'],
+  ['Niktanya','local','assets/portfolio/60-niktanya.webp','https://niktanya.com/'],
+  ['N&R Beauty Studio','local','assets/portfolio/61-nr-beauty-studio.webp','https://nrsaloon.com/'],
+  ['Country Side Club','local','assets/portfolio/62-country-side-club.webp','https://countrysideclubkarachi.com/'],
+  ['SOAA','local','assets/portfolio/63-soaa.webp','http://soaa.pk/'],
+  ['FK Fast Food','local','assets/portfolio/67-fk.webp','http://fkfastfood.com/'],
+  ['Al Hamza Roll Corner','local','assets/portfolio/69-alhamzarollcorner.webp','http://alhamzarollcorner.com/'],
+  ['Button Bae','local','assets/portfolio/68-buttonbae.webp','http://buttonbae.com/'],
+  ['24 News PK','local','assets/portfolio/70-24news.webp','http://24newspk.com/'],
+  ['Haider Ali Foundation','local','assets/portfolio/66-haideralifoundation.webp','http://haideralifoundation.org/'],
+  ['Jaseem Co','local','assets/portfolio/65-jasemco.webp','http://jaseemco.com/'],
+  ['SSIS Al Wathba','intl','assets/portfolio/64-ssis.webp','https://ssis-alwathba.ae/']
 ];
 var PORTFOLIO_IMG=PORTFOLIO.filter(function(p){return p[2]});
 var PORTFOLIO_REST=PORTFOLIO.filter(function(p){return !p[2]});

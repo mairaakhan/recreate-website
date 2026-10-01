@@ -9557,3 +9557,1663 @@ h6{
   }
 
 }
+
+/* =========================================
+   CTA ROBOT
+   ========================================= */
+
+.cta-band{
+  position:relative;
+  overflow:hidden;
+
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(300px,.8fr);
+  align-items:center;
+  gap:30px;
+
+  min-height:330px;
+}
+
+.cta-content{
+  position:relative;
+  z-index:3;
+}
+
+.cta-content h2,
+.cta-content p,
+.cta-content .cta-row{
+  position:relative;
+  z-index:3;
+}
+
+
+/* ROBOT AREA */
+
+.cta-visual{
+  position:relative;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  height:310px;
+
+  pointer-events:none;
+}
+
+
+/* RED GLOW BEHIND ROBOT */
+
+.cta-robot-glow{
+  position:absolute;
+
+  width:260px;
+  height:260px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,.22) 0%,
+      rgba(255,40,40,.18) 35%,
+      transparent 70%
+    );
+
+  filter:blur(10px);
+
+  animation:ctaGlow 4s ease-in-out infinite;
+}
+
+
+/* ROBOT */
+
+.cta-robot{
+  position:relative;
+  z-index:2;
+
+  width:80%;
+  max-width:420px;
+  height:auto;
+
+  object-fit:contain;
+
+  filter:
+    drop-shadow(0 18px 22px rgba(0,0,0,.22))
+    drop-shadow(0 0 18px rgba(255,255,255,.08));
+
+  animation:ctaRobotFloat 4.5s ease-in-out infinite;
+}
+
+
+/* FLOATING */
+
+@keyframes ctaRobotFloat{
+
+  0%,
+  100%{
+    transform:translateY(0) rotate(0deg);
+  }
+
+  50%{
+    transform:translateY(-10px) rotate(.5deg);
+  }
+
+}
+
+
+/* GLOW PULSE */
+
+@keyframes ctaGlow{
+
+  0%,
+  100%{
+    transform:scale(.92);
+    opacity:.55;
+  }
+
+  50%{
+    transform:scale(1.08);
+    opacity:1;
+  }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:699px){
+
+  .cta-band{
+    grid-template-columns:1fr;
+    gap:10px;
+
+    text-align:center;
+
+    padding-bottom:0;
+  }
+
+  .cta-content{
+    position:relative;
+    z-index:3;
+  }
+
+  .cta-row{
+    justify-content:center;
+  }
+
+  .cta-visual{
+    height:250px;
+    margin-top:5px;
+  }
+
+  .cta-robot{
+    max-width:350px;
+  }
+
+}
+
+
+/* ACCESSIBILITY */
+
+@media(prefers-reduced-motion:reduce){
+
+  .cta-robot,
+  .cta-robot-glow{
+    animation:none;
+  }
+
+}
+
+/* =========================================
+   PHOTOGRAPHY PAGE
+   ========================================= */
+
+
+/* HERO */
+
+.photography-hero{
+  position:relative;
+  overflow:hidden;
+
+  padding:110px 0 95px;
+
+  text-align:center;
+}
+
+
+/* RED BACKGROUND GLOW */
+
+.photography-hero::before{
+  content:"";
+
+  position:absolute;
+
+  width:500px;
+  height:500px;
+
+  left:50%;
+  top:45%;
+
+  transform:translate(-50%,-50%);
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(190,0,15,.13) 0%,
+      rgba(190,0,15,.05) 40%,
+      transparent 70%
+    );
+
+  pointer-events:none;
+}
+
+
+.photography-hero-inner{
+  position:relative;
+  z-index:2;
+
+  max-width:850px;
+
+  margin:0 auto;
+}
+
+
+.photography-eyebrow{
+  display:inline-block;
+
+  margin-bottom:16px;
+
+  color:var(--red);
+
+  font-size:13px;
+  font-weight:700;
+
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+
+.photography-hero h1{
+  margin:0 0 20px;
+
+  font-size:clamp(46px,7vw,82px);
+  line-height:1;
+}
+
+
+.photography-hero p{
+  max-width:650px;
+
+  margin:0 auto 30px;
+
+  color:var(--muted);
+
+  font-size:18px;
+  line-height:1.7;
+}
+
+
+/* EXPLORE BUTTON */
+
+.photography-scroll{
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  padding:13px 21px;
+
+  border:1px solid rgba(180,0,15,.28);
+
+  border-radius:999px;
+
+  color:inherit;
+
+  text-decoration:none;
+
+  transition:
+    transform .25s ease,
+    border-color .25s ease,
+    background .25s ease;
+}
+
+
+.photography-scroll span{
+  color:var(--red);
+
+  transition:transform .25s ease;
+}
+
+
+.photography-scroll:hover{
+  transform:translateY(-3px);
+
+  border-color:var(--red);
+}
+
+
+.photography-scroll:hover span{
+  transform:translateY(4px);
+}
+
+
+/* =========================================
+   PORTFOLIO
+   ========================================= */
+
+.photography-portfolio{
+  padding:90px 0 30px;
+}
+
+
+.photography-heading{
+  max-width:720px;
+
+  margin:0 auto 42px;
+
+  text-align:center;
+}
+
+
+.photography-heading h2{
+  margin:4px 0 12px;
+}
+
+
+.photography-heading p{
+  margin:0;
+
+  color:var(--muted);
+}
+
+
+/* =========================================
+   PDF VIEWER
+   ========================================= */
+
+.photography-pdf-wrap{
+  position:relative;
+
+  width:100%;
+  max-width:1050px;
+
+  margin:0 auto;
+
+  padding:10px;
+
+  overflow:hidden;
+
+  border:1px solid var(--line);
+
+  border-radius:24px;
+
+  background:var(--card);
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.12);
+}
+
+
+/* RED DETAIL */
+
+.photography-pdf-wrap::before{
+  content:"";
+
+  display:block;
+
+  width:70px;
+  height:4px;
+
+  margin:4px auto 12px;
+
+  border-radius:20px;
+
+  background:var(--red);
+}
+
+
+/* ACTUAL PDF */
+
+.photography-pdf{
+  display:block;
+
+  width:100%;
+  height:850px;
+
+  border:0;
+
+  border-radius:15px;
+
+  background:#fff;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media(max-width:699px){
+
+  .photography-hero{
+    padding:70px 0 60px;
+  }
+
+
+  .photography-hero h1{
+    font-size:42px;
+  }
+
+
+  .photography-hero p{
+    font-size:16px;
+  }
+
+
+  .photography-portfolio{
+    padding:65px 0 25px;
+  }
+
+
+  .photography-heading{
+    margin-bottom:28px;
+  }
+
+
+  .photography-pdf-wrap{
+    padding:6px;
+
+    border-radius:16px;
+  }
+
+
+  .photography-pdf{
+    height:70vh;
+
+    min-height:560px;
+
+    border-radius:11px;
+  }
+
+}
+
+/* =========================================================
+   FOOD PHOTOGRAPHY PAGE
+   ========================================================= */
+
+.food-photography-page{
+  overflow:hidden;
+}
+
+
+/* HERO */
+
+.food-photo-hero{
+  position:relative;
+  min-height:560px;
+  display:flex;
+  align-items:center;
+  padding:100px 0 90px;
+  overflow:hidden;
+
+  background:
+    radial-gradient(
+      circle at 82% 30%,
+      rgba(169,0,14,.16),
+      transparent 30%
+    ),
+    var(--bg);
+}
+
+
+.food-photo-hero::before{
+  content:"";
+  position:absolute;
+
+  width:420px;
+  height:420px;
+
+  right:-100px;
+  top:30px;
+
+  border:1px solid rgba(169,0,14,.18);
+  border-radius:50%;
+
+  box-shadow:
+    0 0 0 55px rgba(169,0,14,.035),
+    0 0 0 110px rgba(169,0,14,.025);
+
+  animation:foodPhotoFloat 7s ease-in-out infinite;
+}
+
+
+.food-photo-hero-inner{
+  position:relative;
+  z-index:2;
+}
+
+
+/* SMALL TOP HEADING */
+
+.food-photo-eyebrow,
+.food-photo-small-label{
+
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+
+  color:#a9000e;
+
+  font-size:13px;
+  font-weight:800;
+
+  letter-spacing:.16em;
+}
+
+
+.food-photo-eyebrow::before,
+.food-photo-small-label::before{
+
+  content:"";
+
+  width:32px;
+  height:2px;
+
+  background:#a9000e;
+}
+
+
+/* MAIN HEADING */
+
+.food-photo-hero h1{
+
+  max-width:950px;
+
+  margin:
+    22px
+    0
+    20px;
+
+  font-size:
+    clamp(
+      58px,
+      8vw,
+      110px
+    );
+
+  line-height:.9;
+
+  letter-spacing:-.055em;
+
+  text-transform:uppercase;
+}
+
+
+.food-photo-hero h1 span{
+  color:#a9000e;
+}
+
+
+/* HERO TEXT */
+
+.food-photo-hero p{
+
+  max-width:650px;
+
+  margin:0;
+
+  font-size:
+    clamp(
+      18px,
+      2vw,
+      23px
+    );
+
+  line-height:1.6;
+
+  color:var(--muted);
+}
+
+
+/* EXPLORE LINK */
+
+.food-photo-scroll{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  margin-top:34px;
+
+  color:inherit;
+
+  font-weight:700;
+
+  text-decoration:none;
+}
+
+
+.food-photo-scroll span{
+
+  display:grid;
+
+  place-items:center;
+
+  width:36px;
+  height:36px;
+
+  border:
+    1px solid
+    rgba(169,0,14,.35);
+
+  border-radius:50%;
+
+  color:#a9000e;
+
+  transition:
+    transform .25s ease,
+    background .25s ease,
+    color .25s ease;
+}
+
+
+.food-photo-scroll:hover span{
+
+  transform:
+    translateY(4px);
+
+  background:#a9000e;
+
+  color:#fff;
+}
+
+
+/* PORTFOLIO SECTION */
+
+/* .food-photo-showcase{
+
+  padding:
+    100px
+    0
+    110px;
+} */
+
+
+.food-photo-section-head{
+
+  display:grid;
+
+  grid-template-columns:
+    minmax(0,1fr)
+    minmax(280px,.62fr);
+
+  align-items:end;
+
+  gap:50px;
+
+  margin-bottom:45px;
+}
+
+
+.food-photo-section-head h2{
+
+  margin:
+    10px
+    0
+    0;
+
+  font-size:
+    clamp(
+      34px,
+      5vw,
+      62px
+    );
+
+  line-height:1;
+}
+
+
+.food-photo-section-head p{
+
+  margin:0;
+
+  color:var(--muted);
+
+  line-height:1.7;
+}
+
+
+/* PDF */
+
+.food-photo-pdf-wrap{
+
+  position:relative;
+
+  width:100%;
+
+  overflow:hidden;
+
+  border-radius:22px;
+
+  border:
+    1px solid
+    var(--line);
+
+  background:
+    var(--card);
+
+  box-shadow:
+    0 22px 65px
+    rgba(0,0,0,.12);
+}
+
+
+.food-photo-pdf{
+
+  display:block;
+
+  width:100%;
+
+  height:85vh;
+
+  min-height:800px;
+
+  border:0;
+
+  background:#fff;
+}
+
+
+/* ANIMATION */
+
+@keyframes foodPhotoFloat{
+
+  0%,
+  100%{
+
+    transform:
+      translateY(0)
+      scale(1);
+
+  }
+
+
+  50%{
+
+    transform:
+      translateY(15px)
+      scale(1.04);
+
+  }
+
+}
+
+
+/* TABLET */
+
+@media(max-width:899px){
+
+  .food-photo-hero{
+
+    min-height:500px;
+
+    padding:
+      80px
+      0
+      70px;
+
+  }
+
+
+  .food-photo-section-head{
+
+    grid-template-columns:1fr;
+
+    gap:18px;
+
+  }
+
+
+  .food-photo-pdf{
+
+    height:80vh;
+
+    min-height:650px;
+
+  }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:699px){
+
+  .food-photo-hero{
+
+    min-height:440px;
+
+    padding:
+      65px
+      0
+      55px;
+
+  }
+
+
+  .food-photo-hero::before{
+
+    width:270px;
+
+    height:270px;
+
+    right:-130px;
+
+  }
+
+
+  .food-photo-hero h1{
+
+    font-size:
+      clamp(
+        48px,
+        15vw,
+        72px
+      );
+
+  }
+
+
+  /* .food-photo-showcase{
+
+    padding:
+      65px
+      0
+      75px;
+
+  } */
+
+
+  .food-photo-section-head{
+
+    margin-bottom:28px;
+
+  }
+
+
+  .food-photo-pdf-wrap{
+
+    border-radius:14px;
+
+  }
+
+
+  .food-photo-pdf{
+
+    height:72vh;
+
+    min-height:520px;
+
+  }
+
+}
+
+
+/* REDUCED MOTION */
+
+@media(prefers-reduced-motion:reduce){
+
+  .food-photo-hero::before{
+    animation:none;
+  }
+
+}
+/* =========================================
+   FOOD PHOTOGRAPHY RESPONSIVE PORTFOLIO
+   ========================================= */
+
+.food-photo-showcase{
+  padding:90px 0 100px;
+}
+
+.food-photo-section-head{
+  margin-bottom:45px;
+}
+
+
+/* PORTFOLIO CONTAINER */
+
+.food-portfolio-pages{
+  width:100%;
+  max-width:1050px;
+
+  margin:0 auto;
+
+  display:flex;
+  flex-direction:column;
+
+  align-items:center;
+
+  gap:24px;
+}
+
+
+/* EACH PORTFOLIO PAGE */
+
+.food-portfolio-image{
+  display:block;
+
+  width:100%;
+  max-width:100%;
+
+  height:auto;
+
+  object-fit:contain;
+
+  margin:0 auto;
+
+  border-radius:16px;
+
+  box-shadow:
+    0 15px 45px
+    rgba(0,0,0,.12);
+}
+
+
+/* TABLET */
+
+@media(max-width:1024px){
+
+  .food-portfolio-pages{
+    max-width:90%;
+  }
+
+  .food-portfolio-image{
+    width:100%;
+    height:auto;
+  }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:699px){
+
+  .food-photo-showcase{
+    padding:
+      65px
+      0
+      75px;
+  }
+
+  .food-photo-section-head{
+    margin-bottom:30px;
+  }
+
+  .food-portfolio-pages{
+    width:100%;
+    max-width:100%;
+
+    gap:16px;
+  }
+
+  .food-portfolio-image{
+    width:100%;
+    max-width:100%;
+
+    height:auto;
+
+    border-radius:12px;
+  }
+
+}
+
+
+/* VERY SMALL MOBILE */
+
+@media(max-width:420px){
+
+  .food-portfolio-pages{
+    width:100%;
+  }
+
+  .food-portfolio-image{
+    width:100%;
+    height:auto;
+  }
+
+}
+
+/* =========================================
+   PHOTOGRAPHY PAGE - FINAL SPACING FIX
+   ========================================= */
+
+body[data-page="photography"] .photography-portfolio{
+  padding-bottom:0 !important;
+  margin-bottom:0 !important;
+}
+
+body[data-page="photography"] .photography-pdf-wrap{
+  margin-bottom:0 !important;
+}
+
+body[data-page="photography"] main{
+  margin-bottom:0 !important;
+  padding-bottom:0 !important;
+}
+
+/* remove old food photography spacing if present */
+body[data-page="photography"] .food-photo-showcase{
+  padding-bottom:0 !important;
+  margin-bottom:0 !important;
+}
+
+body[data-page="photography"] .food-portfolio-pages{
+  margin-bottom:0 !important;
+  padding-bottom:0 !important;
+}
+
+body[data-page="photography"] .food-portfolio-image:last-child{
+  margin-bottom:0 !important;
+}
+
+/* =========================================
+   FOOD PHOTOGRAPHY - FINAL SPACE FIX
+   ========================================= */
+
+.food-photo-showcase{
+  padding-bottom:20px !important;
+  margin-bottom:0 !important;
+}
+
+.food-photo-showcase > .wrap{
+  padding-bottom:0 !important;
+  margin-bottom:0 !important;
+}
+
+.food-portfolio-pages{
+  padding-bottom:0 !important;
+  margin-bottom:0 !important;
+}
+
+.food-portfolio-image:last-child{
+  display:block !important;
+  margin-bottom:0 !important;
+}
+
+.food-photography-page{
+  padding-bottom:0 !important;
+  margin-bottom:0 !important;
+}
+
+@media(max-width:699px){
+
+  .food-photo-showcase{
+    padding-bottom:15px !important;
+  }
+
+}
+
+/* =========================================
+   FOOD PHOTOGRAPHY - GET A QUOTE
+   ========================================= */
+
+.photo-quote-cta{
+  padding:35px 0 80px;
+}
+
+.photo-quote-box{
+  position:relative;
+  overflow:hidden;
+
+  padding:65px 70px;
+
+  border-radius:28px;
+
+  background:
+    radial-gradient(
+      circle at 90% 20%,
+      rgba(255,255,255,.15),
+      transparent 30%
+    ),
+    #a9000e;
+
+  color:#fff;
+}
+
+.photo-quote-box::after{
+  content:"";
+
+  position:absolute;
+  width:300px;
+  height:300px;
+
+  right:-90px;
+  bottom:-150px;
+
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:50%;
+
+  box-shadow:
+    0 0 0 45px rgba(255,255,255,.04),
+    0 0 0 90px rgba(255,255,255,.03);
+}
+
+.photo-quote-content{
+  position:relative;
+  z-index:2;
+
+  max-width:720px;
+}
+
+.photo-quote-label{
+  display:block;
+
+  margin-bottom:16px;
+
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.16em;
+
+  color:rgba(255,255,255,.75);
+}
+
+.photo-quote-content h2{
+  margin:0;
+
+  font-size:clamp(36px,5vw,64px);
+  line-height:1;
+  letter-spacing:-.04em;
+
+  color:#fff;
+}
+
+.photo-quote-content h2 span{
+  display:block;
+  color:#fff;
+}
+
+.photo-quote-content p{
+  max-width:600px;
+
+  margin:22px 0 28px;
+
+  font-size:17px;
+  line-height:1.7;
+
+  color:rgba(255,255,255,.82);
+}
+
+.photo-quote-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+
+  padding:14px 22px;
+
+  border-radius:999px;
+
+  background:#fff;
+  color:#a9000e;
+
+  font-weight:800;
+  text-decoration:none;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.photo-quote-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 30px rgba(0,0,0,.18);
+}
+
+.photo-quote-btn span{
+  font-size:20px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:699px){
+
+  .photo-quote-cta{
+    padding:25px 0 55px;
+  }
+
+  .photo-quote-box{
+    padding:42px 25px;
+    border-radius:20px;
+  }
+
+  .photo-quote-content h2{
+    font-size:36px;
+  }
+
+  .photo-quote-content p{
+    font-size:15px;
+  }
+
+}
+
+/* =========================================================
+   HOME - FOOD PHOTOGRAPHY
+   ========================================================= */
+
+.home-photography{
+  position:relative;
+  overflow:hidden;
+}
+
+.home-photo-layout{
+  display:grid;
+  grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);
+  align-items:center;
+  gap:70px;
+}
+
+.home-photo-content{
+  max-width:520px;
+}
+
+.home-photo-content .eyebrow{
+  display:inline-block;
+  margin-bottom:18px;
+
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.16em;
+
+  color:var(--red);
+}
+
+.home-photo-content h2{
+  margin:0 0 20px;
+
+  font-size:clamp(34px,4vw,58px);
+  line-height:.98;
+  letter-spacing:-.04em;
+}
+
+.home-photo-content h2 span{
+  display:block;
+  color:var(--red);
+}
+
+.home-photo-content p{
+  max-width:460px;
+  margin:0 0 28px;
+
+  font-size:17px;
+  line-height:1.7;
+  color:var(--muted);
+}
+
+
+/* IMAGE */
+
+.home-photo-preview{
+  position:relative;
+  display:block;
+
+  min-height:480px;
+
+  overflow:hidden;
+  border-radius:28px;
+
+  background:#111;
+  text-decoration:none;
+}
+
+.home-photo-preview img{
+  position:absolute;
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  transition:
+    transform .7s cubic-bezier(.2,.8,.2,1),
+    filter .4s ease;
+}
+
+.home-photo-preview::after{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 45%,
+      rgba(0,0,0,.72) 100%
+    );
+
+  pointer-events:none;
+}
+
+.home-photo-preview:hover img{
+  transform:scale(1.055);
+}
+
+
+/* VIEW PORTFOLIO */
+
+.home-photo-view{
+  position:absolute;
+  z-index:2;
+
+  left:28px;
+  right:28px;
+  bottom:25px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  color:#fff;
+
+  font-size:15px;
+  font-weight:800;
+  letter-spacing:.03em;
+}
+
+.home-photo-view > span{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  width:42px;
+  height:42px;
+
+  border-radius:50%;
+
+  background:#fff;
+  color:#111;
+
+  transition:
+    transform .25s ease,
+    background .25s ease,
+    color .25s ease;
+}
+
+.home-photo-preview:hover .home-photo-view > span{
+  transform:translateX(4px);
+
+  background:var(--red);
+  color:#fff;
+}
+
+
+/* DARK THEME */
+
+html[data-theme="dark"] .home-photo-content p{
+  color:var(--muted);
+}
+
+
+/* TABLET */
+
+@media(max-width:900px){
+
+  .home-photo-layout{
+    grid-template-columns:1fr;
+    gap:35px;
+  }
+
+  .home-photo-content{
+    max-width:650px;
+  }
+
+  .home-photo-preview{
+    min-height:450px;
+  }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+  .home-photo-layout{
+    gap:28px;
+  }
+
+  .home-photo-content h2{
+    font-size:36px;
+  }
+
+  .home-photo-content p{
+    font-size:15px;
+  }
+
+  .home-photo-preview{
+    min-height:390px;
+    border-radius:20px;
+  }
+
+  .home-photo-view{
+    left:20px;
+    right:20px;
+    bottom:20px;
+  }
+
+}
+/* =========================================
+   PORTFOLIO WEBSITE LINK
+   ========================================= */
+
+.work-link{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+
+  margin-top:8px;
+
+  color:var(--muted);
+  text-decoration:none;
+
+  font-size:13px;
+  font-weight:600;
+
+  transition:
+    color .2s ease,
+    transform .2s ease;
+}
+
+.work-link span:first-child{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.work-link-arrow{
+  flex:0 0 auto;
+
+  font-size:17px;
+  color:var(--red);
+
+  transition:transform .2s ease;
+}
+
+.work-link:hover{
+  color:var(--red);
+}
+
+.work-link:hover .work-link-arrow{
+  transform:translate(3px,-3px);
+}
+
+/* =========================================================
+   LAPTOP HEADER — PREVENT LEFT/RIGHT CUTTING
+   ========================================================= */
+
+@media (min-width: 1024px) and (max-width: 1366px){
+
+  .site-header .wrap{
+    width: calc(100% - 32px) !important;
+    max-width: none !important;
+    margin: 0 auto !important;
+  }
+
+  .site-header .bar{
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    gap: 14px !important;
+  }
+
+  /* Logo */
+  .site-header .brand{
+    flex: 0 0 135px !important;
+    width: 135px !important;
+    max-width: 135px !important;
+    overflow: visible !important;
+  }
+
+  .site-header .brand-logo{
+    width: 135px !important;
+    max-width: 135px !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+
+  /* Navigation */
+  .site-header .nav{
+    display: flex !important;
+    flex: 1 1 auto !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 4px !important;
+    min-width: 0 !important;
+  }
+
+  .site-header .nav a{
+    padding: 9px 8px !important;
+    font-size: 13px !important;
+    white-space: nowrap !important;
+  }
+
+  /* Right buttons */
+  .site-header .bar-cta{
+    display: flex !important;
+    flex: 0 0 auto !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  .site-header .bar-cta > a{
+    display: inline-flex !important;
+    white-space: nowrap !important;
+    padding-left: 13px !important;
+    padding-right: 13px !important;
+    font-size: 13px !important;
+  }
+
+  /* Laptop does not need hamburger */
+  .site-header .menu-btn{
+    display: none !important;
+  }
+}
+/* =========================================================
+   HEADER SAFETY
+   Switch to hamburger BEFORE navigation/buttons can overlap
+   ========================================================= */
+
+@media (max-width: 1100px){
+
+  /* Keep logo + controls safely inside screen */
+  .site-header .wrap{
+    width: calc(100% - 32px) !important;
+    max-width: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .site-header .bar{
+    width: 100% !important;
+    max-width: 100% !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    gap: 10px !important;
+  }
+
+
+  /* LOGO */
+
+  .site-header .brand{
+    flex: 1 1 auto !important;
+
+    width: auto !important;
+    max-width: calc(100% - 100px) !important;
+
+    min-width: 0 !important;
+  }
+
+  .site-header .brand-logo{
+    display: block !important;
+
+    width: auto !important;
+    max-width: 170px !important;
+    height: 44px !important;
+
+    object-fit: contain !important;
+  }
+
+
+  /* HIDE DESKTOP NAVIGATION */
+
+  .site-header .nav{
+    display: none !important;
+  }
+
+
+  /* RIGHT SIDE */
+
+  .site-header .bar-cta{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+
+    flex: 0 0 auto !important;
+
+    gap: 8px !important;
+  }
+
+
+  /* Hide Client Login + Get a Quote */
+
+  .site-header .bar-cta > a{
+    display: none !important;
+  }
+
+
+  /* SHOW HAMBURGER */
+
+  .site-header .menu-btn{
+    display: grid !important;
+
+    width: 42px !important;
+    height: 42px !important;
+
+    flex: 0 0 42px !important;
+
+    place-items: center !important;
+  }
+
+
+  /* KEEP THEME BUTTON */
+
+  .site-header .theme-btn{
+    display: grid !important;
+
+    width: 42px !important;
+    height: 42px !important;
+
+    flex: 0 0 42px !important;
+
+    place-items: center !important;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL PHONE
+   ========================================================= */
+
+@media (max-width: 480px){
+
+  .site-header .wrap{
+    width: calc(100% - 24px) !important;
+  }
+
+  .site-header .brand-logo{
+    max-width: 145px !important;
+    height: 38px !important;
+  }
+
+  .site-header .theme-btn,
+  .site-header .menu-btn{
+    width: 38px !important;
+    height: 38px !important;
+
+    flex: 0 0 38px !important;
+  }
+
+}

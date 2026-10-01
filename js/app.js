@@ -409,11 +409,114 @@ FILL['presence']=function(){
   +'</div></div></section>';
 };
 FILL['cta']=function(){
-  return '<section class="s"><div class="wrap"><div class="cta-band reveal"><h2>Let\u2019s build the right solution for your business.</h2><p>Tell us what you need. We will reply with clear next steps.</p><div class="cta-row"><a class="btn btn-light" href="contact.html">Start a project</a><a class="btn btn-outline-light" href="'+C.wa+'" target="_blank" rel="noopener">WhatsApp</a></div></div></div></section>';
+
+  return ''+
+
+  '<section class="s">'+
+
+    '<div class="wrap">'+
+
+      '<div class="cta-band reveal">'+
+
+
+        '<div class="cta-content">'+
+
+          '<h2>'+
+            'Let\u2019s build the right solution for your business.'+
+          '</h2>'+
+
+          '<p>'+
+            'Tell us what you need. We will reply with clear next steps.'+
+          '</p>'+
+
+          '<div class="cta-row">'+
+
+            '<a class="btn btn-light" href="contact.html">'+
+              'Start a project'+
+            '</a>'+
+
+            '<a class="btn btn-outline-light" '+
+              'href="'+C.wa+'" '+
+              'target="_blank" '+
+              'rel="noopener">'+
+              'WhatsApp'+
+            '</a>'+
+
+          '</div>'+
+
+        '</div>'+
+
+
+        '<div class="cta-visual" aria-hidden="true">'+
+
+          '<div class="cta-robot-glow"></div>'+
+
+          '<img '+
+            'class="cta-robot" '+
+            'src="assets/cta-robot.png" '+
+            'alt="" '+
+            'loading="lazy" '+
+            'decoding="async">'+
+
+        '</div>'+
+
+
+      '</div>'+
+
+    '</div>'+
+
+  '</section>';
+
 };
 function workCard(p,key,d){
+
   var anim=d!==undefined;
-  return '<article class="work'+(anim?' pop':'')+'"'+(anim?' style="--d:'+d+'"':'')+'><button class="work-shot" type="button" data-pshot="'+key+'" aria-label="View screenshot: '+esc(p[0])+'"><img src="'+p[2]+'" width="600" height="290" alt="'+esc(p[0])+' website screenshot" loading="lazy" decoding="async"></button><div class="work-body"><h3>'+esc(p[0])+'</h3></div></article>';
+
+  var website='';
+
+  if(p[3]){
+    website=
+      '<a class="work-link" '+
+      'href="'+esc(p[3])+'" '+
+      'target="_blank" '+
+      'rel="noopener noreferrer" '+
+      'aria-label="Visit '+esc(p[0])+' website">'+
+        '<span>'+esc(
+          p[3]
+            .replace(/^https?:\/\//,'')
+            .replace(/^www\./,'')
+            .replace(/\/$/,'')
+        )+'</span>'+
+        '<span class="work-link-arrow" aria-hidden="true">↗</span>'+
+      '</a>';
+  }
+
+  return (
+    '<article class="work'+(anim?' pop':'')+'"'+
+      (anim?' style="--d:'+d+'"':'')+'>'+
+
+      '<button class="work-shot" '+
+        'type="button" '+
+        'data-pshot="'+key+'" '+
+        'aria-label="View screenshot: '+esc(p[0])+'">'+
+
+        '<img '+
+          'src="'+p[2]+'" '+
+          'width="600" '+
+          'height="290" '+
+          'alt="'+esc(p[0])+' website screenshot" '+
+          'loading="lazy" '+
+          'decoding="async">'+
+
+      '</button>'+
+
+      '<div class="work-body">'+
+        '<h3>'+esc(p[0])+'</h3>'+
+        website+
+      '</div>'+
+
+    '</article>'
+  );
 }
 FILL['portfolio']=function(){
   var chips=PORTFOLIO_REGIONS.map(function(r,i){
@@ -720,10 +823,53 @@ function routeFromHash(){return document.body.getAttribute('data-page')||'home'}
 function anchorFromHash(){var h=location.hash.replace(/^#/,'');return h.indexOf('svc-')===0?h.slice(4):''}
 function setTag(sel,val,attr){var el=$(sel);if(el)el.setAttribute(attr||'content',val)}
 function setMeta(r){
-  var m=META[r];document.title=m.t;
-  setTag('meta[name="description"]',m.d);setTag('meta[property="og:title"]',m.t);setTag('meta[property="og:description"]',m.d);
-  setTag('meta[property="og:url"]',C.base+m.p);setTag('meta[name="twitter:title"]',m.t);setTag('meta[name="twitter:description"]',m.d);
-  setTag('link[rel="canonical"]',C.base+m.p,'href');
+
+  var m = META[r];
+
+  /* If this page already has its own HTML SEO,
+     don't crash app.js when META entry is missing */
+  if(!m){
+    return;
+  }
+
+  document.title = m.t;
+
+  setTag(
+    'meta[name="description"]',
+    m.d
+  );
+
+  setTag(
+    'meta[property="og:title"]',
+    m.t
+  );
+
+  setTag(
+    'meta[property="og:description"]',
+    m.d
+  );
+
+  setTag(
+    'meta[property="og:url"]',
+    C.base + m.p
+  );
+
+  setTag(
+    'meta[name="twitter:title"]',
+    m.t
+  );
+
+  setTag(
+    'meta[name="twitter:description"]',
+    m.d
+  );
+
+  setTag(
+    'link[rel="canonical"]',
+    C.base + m.p,
+    'href'
+  );
+
 }
 function show(r){
 

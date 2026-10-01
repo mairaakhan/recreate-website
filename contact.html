@@ -101,22 +101,107 @@
 <div class="info-box" data-fill="where"></div>
 <div class="info-box" data-fill="hours"></div>
 </div>
-<form class="form" id="enquiryForm" novalidate="">
-<h2>Tell us about your project</h2>
-<p class="muted" style="margin-top:8px;font-size:.96rem">Fields marked * are required.</p>
-<div class="fields">
-<div class="field"><label for="f-name">Name *</label><input aria-describedby="e-name" autocomplete="name" id="f-name" name="name"/><span class="err" id="e-name"></span></div>
-<div class="field"><label for="f-company">Company</label><input autocomplete="organization" id="f-company" name="company"/></div>
-<div class="field"><label for="f-email">Email *</label><input aria-describedby="e-email" autocomplete="email" id="f-email" name="email" type="email"/><span class="err" id="e-email"></span></div>
-<div class="field"><label for="f-phone">Phone *</label><input aria-describedby="e-phone" autocomplete="tel" id="f-phone" name="phone" type="tel"/><span class="err" id="e-phone"></span></div>
-<div class="field full"><label for="f-topic">What do you need?</label>
-<select id="f-topic" name="topic">
-<option>Custom software</option><option>Web or Shopify store</option><option>POS or billing</option><option>CCTV or security</option><option>Printing</option><option>Domain or hosting</option><option>Product enquiry</option>
-</select></div>
-<div class="field full"><label for="f-msg">Project details *</label><textarea aria-describedby="e-msg" id="f-msg" name="message"></textarea><span class="err" id="e-msg"></span></div>
-</div>
-<button class="btn btn-primary" type="submit">Send enquiry</button>
-<div aria-live="polite" id="formOut" role="status"></div>
+<form class="form" id="enquiryForm" novalidate>
+
+  <h2>Tell us about your project</h2>
+
+  <p class="muted" style="margin-top:8px;font-size:.96rem">
+    Fields marked * are required.
+  </p>
+
+  <div class="fields">
+
+    <div class="field">
+      <label for="f-name">Name *</label>
+      <input
+        aria-describedby="e-name"
+        autocomplete="name"
+        id="f-name"
+        name="name"
+        type="text"
+        required
+      >
+      <span class="err" id="e-name"></span>
+    </div>
+
+    <div class="field">
+      <label for="f-company">Company</label>
+      <input
+        autocomplete="organization"
+        id="f-company"
+        name="company"
+        type="text"
+      >
+    </div>
+
+    <div class="field">
+      <label for="f-email">Email *</label>
+      <input
+        aria-describedby="e-email"
+        autocomplete="email"
+        id="f-email"
+        name="email"
+        type="email"
+        required
+      >
+      <span class="err" id="e-email"></span>
+    </div>
+
+    <div class="field">
+      <label for="f-phone">Phone *</label>
+      <input
+        aria-describedby="e-phone"
+        autocomplete="tel"
+        id="f-phone"
+        name="phone"
+        type="tel"
+        required
+      >
+      <span class="err" id="e-phone"></span>
+    </div>
+
+    <div class="field full">
+      <label for="f-topic">What do you need?</label>
+
+      <select id="f-topic" name="topic">
+        <option>Custom software</option>
+        <option>Web or Shopify store</option>
+        <option>POS or billing</option>
+        <option>CCTV or security</option>
+        <option>Printing</option>
+        <option>Domain or hosting</option>
+        <option>Product enquiry</option>
+      </select>
+    </div>
+
+    <div class="field full">
+      <label for="f-msg">Project details *</label>
+
+      <textarea
+        aria-describedby="e-msg"
+        id="f-msg"
+        name="message"
+        required
+      ></textarea>
+
+      <span class="err" id="e-msg"></span>
+    </div>
+
+  </div>
+
+  <button
+    class="btn btn-primary"
+    id="enquirySubmit"
+    type="submit">
+    Submit enquiry
+  </button>
+
+  <div
+    aria-live="polite"
+    id="formOut"
+    role="status">
+  </div>
+
 </form>
 </div>
 </section>
